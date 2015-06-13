@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Quiz.Dominio;
+using Quiz.Web;
 using Quiz.Web.Models;
 
 namespace Quiz.Web.Controllers

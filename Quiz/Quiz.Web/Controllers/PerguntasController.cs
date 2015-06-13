@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Quiz.Dominio;
+using Quiz.Web;
 using Quiz.Web.Models;
 
 namespace Quiz.Web.Controllers
@@ -18,9 +18,6 @@ namespace Quiz.Web.Controllers
         // GET: Perguntas
         public ActionResult Index()
         {
-      
-         
-
             return View(db.Perguntas.ToList());
         }
 
@@ -51,11 +48,7 @@ namespace Quiz.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Questao,Resposta,erradoA,erradoB,erradoC")] Pergunta pergunta)
-        
         {
-
-           
-            
             if (ModelState.IsValid)
             {
                 db.Perguntas.Add(pergunta);

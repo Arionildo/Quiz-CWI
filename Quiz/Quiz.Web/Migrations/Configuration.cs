@@ -1,6 +1,5 @@
 namespace Quiz.Web.Migrations
 {
-    using Quiz.Dominio;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;

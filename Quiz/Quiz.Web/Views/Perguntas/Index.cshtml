@@ -1,11 +1,10 @@
-﻿@model IEnumerable<Quiz.Dominio.Pergunta>
+﻿@model IEnumerable<Quiz.Web.Pergunta>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -27,9 +26,6 @@
         <th>
             @Html.DisplayNameFor(model => model.erradoC)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria.Id)
-        </th>
         <th></th>
     </tr>
 
@@ -49,9 +45,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.erradoC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categoria.Id)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
