@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -18,20 +19,17 @@ namespace Quiz.Web.Controllers
             return View(db.Categorias.ToList());
         }
 
-        //[AllowAnonymous]
-        //public JsonResult Perguntas()
-        //{
-            
+  
 
-        //    return Json(new
-        //    {
-        //        restaurantes = todos
-        //    }, JsonRequestBehavior.AllowGet
-        //        );
+        public ActionResult Perguntas(int? id)
+        {
+            var aa = db.Perguntas.Where(x => x.Categoria.Id == id);
 
 
+            return View(aa);
+        }
 
-
-        //}
+             
+           
     }
 }

@@ -1,0 +1,29 @@
+﻿@model Quiz.Web.Pergunta
+
+@{
+    ViewBag.Title = "Perguntas";
+}
+
+<h2>Perguntas</h2>
+
+
+@*@foreach (var item in Model)
+{
+    @Html.ActionLink(@item.Nome, "Perguntas", new { id = item.Id }, new { @class = "btn btn-default" })
+
+
+
+}
+
+
+<div>
+    <h4>Pergunta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Questao)
+        </dt>
+
+
+    </dl>
+</div>*@
