@@ -1,8 +1,9 @@
 ﻿
 using System.Collections.Generic;
-using TurboRango.Dominio;
+using Quiz.Dominio;
+using System.Web.Mvc;
 
-namespace Quiz.Dominio
+namespace Quiz.Web
 {
     public class Categoria : Entidade
     {
@@ -11,6 +12,7 @@ namespace Quiz.Dominio
 
         public string Descricao { get; set; }
 
+        public IEnumerable<SelectListItem> ListaCategorias { get; set; }
 
         public ICollection<Pergunta> Pergunta { get; set; }
     }
