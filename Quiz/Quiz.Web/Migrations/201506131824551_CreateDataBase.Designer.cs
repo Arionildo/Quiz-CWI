@@ -7,13 +7,13 @@ namespace Quiz.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class Categorias : IMigrationMetadata
+    public sealed partial class CreateDataBase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Categorias));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreateDataBase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506131557458_Categorias"; }
+            get { return "201506131824551_CreateDataBase"; }
         }
         
         string IMigrationMetadata.Source

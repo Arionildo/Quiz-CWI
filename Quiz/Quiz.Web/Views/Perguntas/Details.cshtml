@@ -1,0 +1,58 @@
+﻿@model Quiz.Dominio.Pergunta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pergunta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Questao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Questao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erradoA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erradoA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erradoB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erradoB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.erradoC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.erradoC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

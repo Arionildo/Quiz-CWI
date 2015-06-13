@@ -31,5 +31,7 @@ namespace Quiz.Web.Models
         }
 
         public System.Data.Entity.DbSet<Quiz.Dominio.Categoria> Categorias { get; set; }
+
+        public System.Data.Entity.DbSet<Quiz.Dominio.Pergunta> Perguntas { get; set; }
     }
 }

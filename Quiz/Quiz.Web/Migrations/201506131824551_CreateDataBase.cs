@@ -3,7 +3,7 @@ namespace Quiz.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Categorias : DbMigration
+    public partial class CreateDataBase : DbMigration
     {
         public override void Up()
         {
@@ -16,6 +16,22 @@ namespace Quiz.Web.Migrations
                         Descricao = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Perguntas",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Questao = c.String(),
+                        Resposta = c.String(),
+                        erradoA = c.String(),
+                        erradoB = c.String(),
+                        erradoC = c.String(),
+                        Categoria_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categorias", t => t.Categoria_Id)
+                .Index(t => t.Categoria_Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -93,17 +109,20 @@ namespace Quiz.Web.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Perguntas", "Categoria_Id", "dbo.Categorias");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Perguntas", new[] { "Categoria_Id" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Perguntas");
             DropTable("dbo.Categorias");
         }
     }

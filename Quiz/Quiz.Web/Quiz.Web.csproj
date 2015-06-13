@@ -162,12 +162,13 @@
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PerguntasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506131557458_Categorias.cs" />
-    <Compile Include="Migrations\201506131557458_Categorias.Designer.cs">
-      <DependentUpon>201506131557458_Categorias.cs</DependentUpon>
+    <Compile Include="Migrations\201506131824551_CreateDataBase.cs" />
+    <Compile Include="Migrations\201506131824551_CreateDataBase.Designer.cs">
+      <DependentUpon>201506131824551_CreateDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -236,6 +237,11 @@
     <Content Include="Views\Categorias\Details.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
+    <Content Include="Views\Perguntas\Create.cshtml" />
+    <Content Include="Views\Perguntas\Delete.cshtml" />
+    <Content Include="Views\Perguntas\Details.cshtml" />
+    <Content Include="Views\Perguntas\Edit.cshtml" />
+    <Content Include="Views\Perguntas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,8 +261,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506131557458_Categorias.resx">
-      <DependentUpon>201506131557458_Categorias.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506131824551_CreateDataBase.resx">
+      <DependentUpon>201506131824551_CreateDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

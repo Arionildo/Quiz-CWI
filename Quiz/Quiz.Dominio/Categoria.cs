@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using TurboRango.Dominio;
 
 namespace Quiz.Dominio
@@ -10,6 +11,8 @@ namespace Quiz.Dominio
 
         public string Descricao { get; set; }
 
+
+        public ICollection<Pergunta> Pergunta { get; set; }
     }
 }
 
