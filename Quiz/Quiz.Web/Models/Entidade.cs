@@ -1,4 +1,4 @@
-﻿namespace TurboRango.Dominio
+﻿namespace Quiz.Web
 {
     public abstract class Entidade
     {

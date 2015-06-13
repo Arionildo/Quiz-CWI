@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using TurboRango.Dominio;
 
-namespace Quiz.Dominio
+namespace Quiz.Web
 {
   public class Pergunta : Entidade
     {

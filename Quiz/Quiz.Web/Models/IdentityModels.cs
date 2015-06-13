@@ -30,8 +30,8 @@ namespace Quiz.Web.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Quiz.Dominio.Categoria> Categorias { get; set; }
+        public System.Data.Entity.DbSet<Quiz.Web.Categoria> Categorias { get; set; }
 
-        public System.Data.Entity.DbSet<Quiz.Dominio.Pergunta> Perguntas { get; set; }
+        public System.Data.Entity.DbSet<Quiz.Web.Pergunta> Perguntas { get; set; }
     }
 }
