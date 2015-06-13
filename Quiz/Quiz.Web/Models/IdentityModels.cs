@@ -29,5 +29,7 @@ namespace Quiz.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Quiz.Dominio.Categoria> Categorias { get; set; }
     }
 }
