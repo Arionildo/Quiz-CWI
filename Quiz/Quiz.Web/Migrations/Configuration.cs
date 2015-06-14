@@ -9,7 +9,7 @@ namespace Quiz.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Quiz.Web.Models.ApplicationDbContext context)
@@ -35,47 +35,47 @@ namespace Quiz.Web.Migrations
             #region Ciência
                 new Pergunta
                 {
-                    Questao = "Qual a cor do cavalo branco de Napoleão?",
-                    Resposta = "Branco",
-                    erradoA = "Não sei",
-                    erradoB = "Vou perguntar pra minha mãe",
-                    erradoC = "Minha mãe não sabe",
+                    Questao = "Que tipo de rocha é a pedra mármore?",
+                    Resposta = "Metamórfica",
+                    erradoA = "Magmática",
+                    erradoB = "Sedimentar",
+                    erradoC = "Rudimentar",
                     Categoria_Id = 1
                 },
                 new Pergunta
                 {
-                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
-                    Resposta = "Vermelha",
-                    erradoA = "Marrom",
-                    erradoB = "Azul claro",
-                    erradoC = "Amarelo",
+                    Questao = "Como se chama a um lugar onde animais e plantas coabitam?",
+                    Resposta = "Habitat",
+                    erradoA = "Jardim botânico",
+                    erradoB = "Casa",
+                    erradoC = "Natureza",
                     Categoria_Id = 1
                 },
                 new Pergunta
                 {
-                    Questao = "Qual o nome científico do cacau?",
-                    Resposta = "Theobroma cacau",
-                    erradoA = "Malvaceae cacau",
-                    erradoB = "Petrosetinum cacau",
-                    erradoC = "Aechmea cacau",
+                    Questao = "De que cor é a lingua da girafa?",
+                    Resposta = "Azul",
+                    erradoA = "Verde",
+                    erradoB = "Amarela",
+                    erradoC = "Vermelha",
                     Categoria_Id = 1
                 },
                 new Pergunta
                 {
-                    Questao = "Qual é o lema nacional do Brasil?",
-                    Resposta = "Ordem e Progresso",
-                    erradoA = "Independência ou Morte",
-                    erradoB = "Pelo Brasil, façam-se grandes coisas",
-                    erradoC = "Unidade, Trabalho, Progresso",
+                    Questao = "Por quantas camadas é constituida a atmosfera?",
+                    Resposta = "5 camadas",
+                    erradoA = "2 camadas",
+                    erradoB = "1 camada",
+                    erradoC = "7 camadas",
                     Categoria_Id = 1
                 },
                 new Pergunta
                 {
-                    Questao = "O que é Bricabraque?",
-                    Resposta = "Coleção de objetos de artesanato",
-                    erradoA = "Coleção de armas",
-                    erradoB = "Coleção de jogo de cartas",
-                    erradoC = "Coleção de revistas em quadrinhos",
+                    Questao = "Que nome se dá à Luz solar reflectida pela Lua?",
+                    Resposta = "Luar",
+                    erradoA = "Luz vísivel",
+                    erradoB = "Noite",
+                    erradoC = "Eclipse lunar",
                     Categoria_Id = 1
                 },
             #endregion
@@ -83,47 +83,47 @@ namespace Quiz.Web.Migrations
             #region Comidas E Bebidas
                  new Pergunta
                  {
-                     Questao = "Qual a cor do cavalo branco de Napoleão?",
-                     Resposta = "Branco",
-                     erradoA = "Não sei",
-                     erradoB = "Vou perguntar pra minha mãe",
-                     erradoC = "Minha mãe não sabe",
+                     Questao = "A Caipirinha é uma das bebidas brasileiras mais conhecidas nacionalmente e internacionalmente. A Caipirinha tem origem de qual estado brasileiro??",
+                     Resposta = "Mato Grosso do Sul",
+                     erradoA = "Espírito Santo",
+                     erradoB = "São Paulo",
+                     erradoC = "Pernambuco",
                      Categoria_Id = 2
                  },
                 new Pergunta
                 {
-                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
-                    Resposta = "Vermelha",
-                    erradoA = "Marrom",
-                    erradoB = "Azul claro",
-                    erradoC = "Amarelo",
+                    Questao = "O verdadeiro churrasco tradicional do Rio Grande do Sul é temperado, essencialmente, com:?",
+                    Resposta = "Sal grosso",
+                    erradoA = "Vinho tinto",
+                    erradoB = "azeite de oliva",
+                    erradoC = "limão",
                     Categoria_Id = 2
                 },
                 new Pergunta
                 {
-                    Questao = "Qual o nome científico do cacau?",
-                    Resposta = "Theobroma cacau",
-                    erradoA = "Malvaceae cacau",
-                    erradoB = "Petrosetinum cacau",
-                    erradoC = "Aechmea cacau",
+                    Questao = "Diz a lenda que a feijoada é uma invenção dos escravos, mas vale lembrar que não é um prato brasileiro e sim de origem Europeia. Em que país foi inventada a feijoada?",
+                    Resposta = "Portugal",
+                    erradoA = "Alemanha",
+                    erradoB = "Itália",
+                    erradoC = "Eslovênia",
                     Categoria_Id = 2
                 },
                 new Pergunta
                 {
-                    Questao = "Qual é o lema nacional do Brasil?",
-                    Resposta = "Ordem e Progresso",
-                    erradoA = "Independência ou Morte",
-                    erradoB = "Pelo Brasil, façam-se grandes coisas",
-                    erradoC = "Unidade, Trabalho, Progresso",
+                    Questao = "Qual a comida mais popular para mais da metade da população mundial?",
+                    Resposta = "Arroz",
+                    erradoA = "Macarrão",
+                    erradoB = "Feijão",
+                    erradoC = "Frango",
                     Categoria_Id = 2
                 },
                 new Pergunta
                 {
-                    Questao = "O que é Bricabraque?",
-                    Resposta = "Coleção de objetos de artesanato",
-                    erradoA = "Coleção de armas",
-                    erradoB = "Coleção de jogo de cartas",
-                    erradoC = "Coleção de revistas em quadrinhos",
+                    Questao = "Qual rio escocês fornece mais de 90% da água usada na fabricação de Whisky?",
+                    Resposta = "Spey",
+                    erradoA = "Weser",
+                    erradoB = "Volga",
+                    erradoC = "Danúbio",
                     Categoria_Id = 2
                 },
             #endregion

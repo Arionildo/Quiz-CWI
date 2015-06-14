@@ -194,3 +194,4 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+Quiz/Quiz.Web/Migrations/201506131824551_CreateDataBase.cs
