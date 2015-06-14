@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.erradoC)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
         <th></th>
     </tr>
 
@@ -45,6 +48,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.erradoC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.Nome)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

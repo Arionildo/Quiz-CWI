@@ -6,14 +6,14 @@ namespace Quiz.Web.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
     public sealed partial class CreateDataBase : IMigrationMetadata
     {
         private readonly ResourceManager Resources = new ResourceManager(typeof(CreateDataBase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201506131824551_CreateDataBase"; }
+            get { return "201506141909428_CreateDataBase"; }
         }
         
         string IMigrationMetadata.Source

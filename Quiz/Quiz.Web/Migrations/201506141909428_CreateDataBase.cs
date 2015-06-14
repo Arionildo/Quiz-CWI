@@ -27,11 +27,13 @@ namespace Quiz.Web.Migrations
                         erradoA = c.String(),
                         erradoB = c.String(),
                         erradoC = c.String(),
-                        Categoria_Id = c.Int(),
+                        NomeCategoria = c.String(),
+                        Categoria_Id = c.Int(nullable: false),
+                        Categoria_Id1 = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Categorias", t => t.Categoria_Id)
-                .Index(t => t.Categoria_Id);
+                .ForeignKey("dbo.Categorias", t => t.Categoria_Id1)
+                .Index(t => t.Categoria_Id1);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -109,14 +111,14 @@ namespace Quiz.Web.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Perguntas", "Categoria_Id", "dbo.Categorias");
+            DropForeignKey("dbo.Perguntas", "Categoria_Id1", "dbo.Categorias");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Perguntas", new[] { "Categoria_Id" });
+            DropIndex("dbo.Perguntas", new[] { "Categoria_Id1" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
