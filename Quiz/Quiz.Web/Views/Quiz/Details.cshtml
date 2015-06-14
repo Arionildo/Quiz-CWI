@@ -1,0 +1,84 @@
+﻿
+
+@{
+    ViewBag.Title = "Details";
+   
+}
+
+<h2>Details
+  </h2>
+
+
+<div class="questao">
+ 
+ 
+</div>
+
+    <li class="teste"></li>
+    <li class="respostas certa"></li>
+    <li class="respostas errado1"></li>
+    <li class="respostas errado2"></li>
+    <li class="respostas errado3"></li>
+
+
+@section Scripts{
+    <script>
+    //alert(qtdRestaurantes);
+
+    var questao = $('.questao');
+    var sortearOrdemPergunta = {};
+    var OrdemRespostas = {};
+    var sortearOrdemRespostas = {};
+
+    $.get('@Url.Action("Perguntas", "Quiz",  new {id= 3} )')
+      .done(function (response) {
+
+    
+        
+          sortearOrdemPergunta = jQuery(response).get().sort(function () {
+                  return Math.round(Math.random()) - 0.5
+              }).slice(0, 5)
+
+       
+        
+
+
+
+          sortearOrdemPergunta.forEach(function (pergunta) {
+              questao.text("Questao " + pergunta.Questao + " ? ");
+              $('.certa').text("Resposta :" + pergunta.Resposta);
+              $('.errado1').text("Errada 1 " + pergunta.erradoA);
+              $('.errado2').text("Errada 2 " + pergunta.erradoB);
+              $('.errado3').text("Errada 2 " + pergunta.erradoC);
+
+              OrdemRespostas = [pergunta.Resposta, pergunta.erradoA, pergunta.erradoB, pergunta.erradoC];
+
+              sortearOrdemRespostas = jQuery(OrdemRespostas).get().sort(function () {
+                  return Math.round(Math.random()) - 0.5
+              }).slice(0, 5)
+
+
+
+              console.log(sortearOrdemRespostas);
+
+              //console.log(sortearOrdemRespostas.eq(0));
+              //$('.teste').text(sortearOrdemPergunta);
+
+             
+
+          });
+
+
+      })
+
+
+
+
+
+
+
+    </script>
+
+
+
+}
