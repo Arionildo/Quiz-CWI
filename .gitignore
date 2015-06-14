@@ -198,3 +198,4 @@ Quiz/Quiz.Web/Migrations/201506131824551_CreateDataBase.cs
 Quiz/Quiz.Web/Migrations/201506142131034_CreateDataBase.cs
 Quiz/Quiz.Web/Migrations/201506142131034_CreateDataBase.Designer.cs
 Quiz/Quiz.Web/Migrations/201506142131034_CreateDataBase.resx
+*.rej
