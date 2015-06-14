@@ -19,17 +19,36 @@ namespace Quiz.Web.Controllers
             return View(db.Categorias.ToList());
         }
 
-  
 
-        public ActionResult Perguntas(int? id)
+        public ActionResult Details(int? id)
         {
-            var aa = db.Perguntas.Where(x => x.Categoria.Id == id);
-
-
-            return View(aa);
+            @ViewBag.id = id;
+        
+            return View();
         }
 
-             
+
+        [AllowAnonymous]
+        public JsonResult Perguntas(int? id)
+        {
+           // "Vai caralho"; 
+            var aa = db.Perguntas.Where(x => x.Categoria_Id == id).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
+
+            return Json(aa, JsonRequestBehavior.AllowGet);
+
+          
+        }
+
+ 
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
            
     }
 }

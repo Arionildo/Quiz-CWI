@@ -1,29 +1,85 @@
-﻿@model Quiz.Web.Pergunta
+﻿@model IEnumerable<Quiz.Web.Pergunta>
 
 @{
-    ViewBag.Title = "Perguntas";
+    ViewBag.Title = "Index";
 }
 
-<h2>Perguntas</h2>
+<h2>Index</h2>
 
-
-@*@foreach (var item in Model)
-{
-    @Html.ActionLink(@item.Nome, "Perguntas", new { id = item.Id }, new { @class = "btn btn-default" })
-
-
-
-}
-
-
-<div>
-    <h4>Pergunta</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
+<div class="questao">
+    
+       
+</div>
+<table class="table">
+    <tr>
+        <th>
             @Html.DisplayNameFor(model => model.Questao)
-        </dt>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.erradoA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.erradoB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.erradoC)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Questao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.erradoA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.erradoB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.erradoC)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+@section Scripts {
+<script>
+    //alert(qtdRestaurantes);
+
+    var questo = $('.questao');
+   
+
+        $.get('@Url.Action("Perguntas", "Quiz")')
+          .done(function(response) {
+            
+              console.log(response);
+
+          })
+
+ 
 
 
-    </dl>
-</div>*@
+
+
+
+
+</script>
+
+
+
+}

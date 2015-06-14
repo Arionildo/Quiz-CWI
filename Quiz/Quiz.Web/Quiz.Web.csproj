@@ -184,9 +184,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506131824551_CreateDataBase.cs" />
-    <Compile Include="Migrations\201506131824551_CreateDataBase.Designer.cs">
-      <DependentUpon>201506131824551_CreateDataBase.cs</DependentUpon>
+    <Compile Include="Migrations\201506141909428_CreateDataBase.cs" />
+    <Compile Include="Migrations\201506141909428_CreateDataBase.Designer.cs">
+      <DependentUpon>201506141909428_CreateDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -277,6 +277,7 @@
     <Content Include="Views\Perguntas\Index.cshtml" />
     <Content Include="Views\Quiz\Index.cshtml" />
     <Content Include="Views\Quiz\Perguntas.cshtml" />
+    <Content Include="Views\Quiz\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -292,8 +293,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506131824551_CreateDataBase.resx">
-      <DependentUpon>201506131824551_CreateDataBase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506141909428_CreateDataBase.resx">
+      <DependentUpon>201506141909428_CreateDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
