@@ -7,6 +7,7 @@ namespace Quiz.Web.Migrations
     {
         public override void Up()
         {
+            Down();
             CreateTable(
                 "dbo.Categorias",
                 c => new

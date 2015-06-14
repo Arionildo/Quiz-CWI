@@ -10,9 +10,9 @@ namespace Quiz.Web
       public string erradoA { set; get; }
       public string erradoB { set; get; }
       public string erradoC { set; get; }
+      public string NomeCategoria { get; set; }
+      public int Categoria_Id { get; set; }
       public virtual Categoria Categoria { set; get; }
-
-    
 
     }
 
