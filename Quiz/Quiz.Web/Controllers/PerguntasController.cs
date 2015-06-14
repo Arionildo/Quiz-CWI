@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -39,7 +39,16 @@ namespace Quiz.Web.Controllers
         // GET: Perguntas/Create
         public ActionResult Create()
         {
-            return View();
+            //MODEL PARA PEGAR A LISTA DE 'CATEGORIAS' ATRIBUINDO AO OBJETO 'CATEGORIA' DA CLASSE 'PERGUNTA'
+            var model = new Pergunta()
+            {
+                Categoria = new Categoria()
+                {
+                    ListaCategorias = GetCategorias()
+                }
+            };
+
+            return View(model);
         }
 
         // POST: Perguntas/Create
@@ -123,6 +132,19 @@ namespace Quiz.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //RETORNA UMA LISTA COM O ID E NOME DE CADA CATEGORIA
+        private IEnumerable<SelectListItem> GetCategorias()
+        {
+            var lista = db.Categorias.Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.Id.ToString(),
+                                    Text = x.Nome
+                                });
+
+            return new SelectList(lista, "Value", "Text");
         }
     }
 }
