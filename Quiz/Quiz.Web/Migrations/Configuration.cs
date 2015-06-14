@@ -28,6 +28,443 @@ namespace Quiz.Web.Migrations
                 new Categoria { Nome = "Música",                Descricao = "Questões relacionadas à bandas, cantores e todos os estilos musicais." },
                 new Categoria { Nome = "TV",                    Descricao = "Para aqueles quem não perdem uma novela, uma série ou até mesmo um programa de celebridades." }
             );
+
+            context.Perguntas.AddOrUpdate(
+                p => p.Questao,
+
+            #region Ciência
+                new Pergunta
+                {
+                    Questao = "Qual a cor do cavalo branco de Napoleão?",
+                    Resposta = "Branco",
+                    erradoA = "Não sei",
+                    erradoB = "Vou perguntar pra minha mãe",
+                    erradoC = "Minha mãe não sabe",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 1
+                },
+            #endregion
+            
+            #region Comidas E Bebidas
+                 new Pergunta
+                 {
+                     Questao = "Qual a cor do cavalo branco de Napoleão?",
+                     Resposta = "Branco",
+                     erradoA = "Não sei",
+                     erradoB = "Vou perguntar pra minha mãe",
+                     erradoC = "Minha mãe não sabe",
+                     Categoria_Id = 2
+                 },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 2
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 2
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 2
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 2
+                },
+            #endregion
+            
+            #region Conhecimentos Gerais
+                new Pergunta
+                {
+                    Questao = "Qual a cor do cavalo branco de Napoleão?",
+                    Resposta = "Branco",
+                    erradoA = "Não sei",
+                    erradoB = "Vou perguntar pra minha mãe",
+                    erradoC = "Minha mãe não sabe",
+                    Categoria_Id = 3
+                },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 3
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 3
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 3
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 3
+                },
+            #endregion
+            
+            #region Esportes
+                 new Pergunta
+                 {
+                     Questao = "Qual a cor do cavalo branco de Napoleão?",
+                     Resposta = "Branco",
+                     erradoA = "Não sei",
+                     erradoB = "Vou perguntar pra minha mãe",
+                     erradoC = "Minha mãe não sabe",
+                     Categoria_Id = 4
+                 },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 4
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 4
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 4
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 4
+                },
+            #endregion
+            
+            #region Filme
+                 new Pergunta
+                 {
+                     Questao = "Qual a cor do cavalo branco de Napoleão?",
+                     Resposta = "Branco",
+                     erradoA = "Não sei",
+                     erradoB = "Vou perguntar pra minha mãe",
+                     erradoC = "Minha mãe não sabe",
+                     Categoria_Id = 5
+                 },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 5
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 5
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 5
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 5
+                },
+            #endregion
+            
+            #region Geografia
+                 new Pergunta
+                 {
+                     Questao = "Qual a cor do cavalo branco de Napoleão?",
+                     Resposta = "Branco",
+                     erradoA = "Não sei",
+                     erradoB = "Vou perguntar pra minha mãe",
+                     erradoC = "Minha mãe não sabe",
+                     Categoria_Id = 6
+                 },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 6
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 6
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 6
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 6
+                },
+            #endregion
+            
+            #region Jogos
+                 new Pergunta
+                 {
+                     Questao = "Qual a cor do cavalo branco de Napoleão?",
+                     Resposta = "Branco",
+                     erradoA = "Não sei",
+                     erradoB = "Vou perguntar pra minha mãe",
+                     erradoC = "Minha mãe não sabe",
+                     Categoria_Id = 7
+                 },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 7
+                },
+            #endregion
+            
+            #region Música
+                 new Pergunta
+                 {
+                     Questao = "Qual a cor do cavalo branco de Napoleão?",
+                     Resposta = "Branco",
+                     erradoA = "Não sei",
+                     erradoB = "Vou perguntar pra minha mãe",
+                     erradoC = "Minha mãe não sabe",
+                     Categoria_Id = 8
+                 },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 8
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 8
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 8
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 8
+                },
+            #endregion
+            
+            #region TV
+                 new Pergunta
+                 {
+                     Questao = "Qual a cor do cavalo branco de Napoleão?",
+                     Resposta = "Branco",
+                     erradoA = "Não sei",
+                     erradoB = "Vou perguntar pra minha mãe",
+                     erradoC = "Minha mãe não sabe",
+                     Categoria_Id = 9
+                 },
+                new Pergunta
+                {
+                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
+                    Resposta = "Vermelha",
+                    erradoA = "Marrom",
+                    erradoB = "Azul claro",
+                    erradoC = "Amarelo",
+                    Categoria_Id = 9
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome científico do cacau?",
+                    Resposta = "Theobroma cacau",
+                    erradoA = "Malvaceae cacau",
+                    erradoB = "Petrosetinum cacau",
+                    erradoC = "Aechmea cacau",
+                    Categoria_Id = 9
+                },
+                new Pergunta
+                {
+                    Questao = "Qual é o lema nacional do Brasil?",
+                    Resposta = "Ordem e Progresso",
+                    erradoA = "Independência ou Morte",
+                    erradoB = "Pelo Brasil, façam-se grandes coisas",
+                    erradoC = "Unidade, Trabalho, Progresso",
+                    Categoria_Id = 9
+                },
+                new Pergunta
+                {
+                    Questao = "O que é Bricabraque?",
+                    Resposta = "Coleção de objetos de artesanato",
+                    erradoA = "Coleção de armas",
+                    erradoB = "Coleção de jogo de cartas",
+                    erradoC = "Coleção de revistas em quadrinhos",
+                    Categoria_Id = 9
+                }
+            #endregion
+
+            );
         }
     }
 }
