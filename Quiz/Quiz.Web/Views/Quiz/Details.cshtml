@@ -30,7 +30,9 @@
     var OrdemRespostas = {};
     var sortearOrdemRespostas = {};
 
-    $.get('@Url.Action("Perguntas", "Quiz",  new {id= 3} )')
+
+
+    $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
       .done(function (response) {
 
     
