@@ -1,77 +1,85 @@
-﻿
-
-@{
+﻿@{
     ViewBag.Title = "Details";
-   
+
 }
 
-<h2>Details
-  </h2>
+<h2>
+    Details
+</h2>
 
 
-<div class="questao">
- 
- 
-</div>
-
-    <li class="teste"></li>
-    <li class="respostas certa"></li>
-    <li class="respostas errado1"></li>
-    <li class="respostas errado2"></li>
-    <li class="respostas errado3"></li>
+<h1 class="questao">
+</h1>
+<p><a class="btn btn1 btn-primary btn-lg">aaa</a></p>
+<p><a class="btn btn2 btn-primary btn-lg">aaa</a></p>
+<p><a class="btn btn3 btn-primary btn-lg">aaa</a></p>
+<p><a class="btn btn4 btn-primary btn-lg">aaa</a></p>
 
 
 @section Scripts{
     <script>
-    //alert(qtdRestaurantes);
+        //alert(qtdRestaurantes);
 
-    var questao = $('.questao');
-    var sortearOrdemPergunta = {};
-    var OrdemRespostas = {};
-    var sortearOrdemRespostas = {};
+        var questao = $('.questao');
 
-
-
-    $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
-      .done(function (response) {
-
-    
-        
-          sortearOrdemPergunta = jQuery(response).get().sort(function () {
-                  return Math.round(Math.random()) - 0.5
-              }).slice(0, 5)
-
+        var sortearOrdemPergunta = {};
+        var OrdemRespostas = {};
+        var sortearOrdemRespostas = {};
+        var questaoAtual = {};
        
+
+        $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
+          .done(function (response) {
+
+
+              sortearOrdemPergunta = jQuery(response).get().sort(function () {
+                  return Math.round(Math.random()) - 0.5
+              }).slice(0, 5);
+              remover();
+          });
         
 
 
-
-          sortearOrdemPergunta.forEach(function (pergunta) {
-              questao.text("Questao " + pergunta.Questao + " ? ");
-              $('.certa').text("Resposta :" + pergunta.Resposta);
-              $('.errado1').text("Errada 1 " + pergunta.erradoA);
-              $('.errado2').text("Errada 2 " + pergunta.erradoB);
-              $('.errado3').text("Errada 2 " + pergunta.erradoC);
-
-              OrdemRespostas = [pergunta.Resposta, pergunta.erradoA, pergunta.erradoB, pergunta.erradoC];
-
-              sortearOrdemRespostas = jQuery(OrdemRespostas).get().sort(function () {
-                  return Math.round(Math.random()) - 0.5
-              }).slice(0, 5)
-
-
-
-              console.log(sortearOrdemRespostas);
-
-              //console.log(sortearOrdemRespostas.eq(0));
-              //$('.teste').text(sortearOrdemPergunta);
-
-             
-
-          });
+        function remover() {
+            questaoAtual = sortearOrdemPergunta[0];
+            sortearOrdemPergunta.splice(0, 1);
+            console.log('remover');
+            mostraQuestao(questaoAtual);
+            
+        }
+        
+        $(function () {
+            $('.btn').click(function () {
+                remover();
+            });
+        })
 
 
-      })
+        function mostraQuestao(questaoAtual) {
+
+            questao.text(questaoAtual.Questao);
+           
+            ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
+           
+            console.log(ordemRespostas);
+
+            sortearOrdemRespostas = jQuery(ordemRespostas).get().sort(function () {
+                return Math.round(Math.random()) - 0.5
+            }).slice(0, 5);
+            console.log(sortearOrdemRespostas);
+            console.log(sortearOrdemRespostas[0]);
+            $('.btn1  ').text(sortearOrdemRespostas[0]);
+            $('.btn2  ').text(sortearOrdemRespostas[1]);
+            $('.btn3  ').text(sortearOrdemRespostas[2]);
+            $('.btn4  ').text(sortearOrdemRespostas[3]);
+    
+        };    
+    
+
+
+
+      
+
 
 
 

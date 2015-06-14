@@ -31,7 +31,7 @@ namespace Quiz.Web.Controllers
         [AllowAnonymous]
         public JsonResult Perguntas(int? id)
         {
-           // "Vai caralho"; 
+           
             var aa = db.Perguntas.Where(x => x.Categoria_Id == id).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
 
             return Json(aa, JsonRequestBehavior.AllowGet);
