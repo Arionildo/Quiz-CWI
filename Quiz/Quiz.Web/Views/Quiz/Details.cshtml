@@ -14,10 +14,23 @@
 <p><a class="btn btn3 btn-primary btn-lg"></a></p>
 <p><a class="btn btn4 btn-primary btn-lg"></a></p>
 
-<span id="timer">15</span>
+<span id="timer"></span>
 
         @section Scripts{
             <script>
+
+                //Contador regressivo
+
+                var timer = function () {
+                    var sec = 15;
+                    setInterval(function () {
+                        document.getElementById("timer").innerHTML = sec;
+                        sec--;
+                    }, 1000);
+                }
+
+                window.onload = timer();
+
                 //alert(qtdRestaurantes);
 
                 var questao = $('.questao');
@@ -49,6 +62,7 @@
 
                 $(function () {
                     $('.btn').click(function () {
+                        clearInterval(timer);
                         remover();
                     });
                 })
@@ -81,24 +95,11 @@
 
                 function resposta() {
                     $(questaoCerta).click(function () {
+                        clearInterval(timer);
                         console.log('acertou');
                     });
 
                 };
 
-                //Contador regressivo
-
-                window.onload = function () {
-                    var sec = 15;
-                    setInterval(function () {
-
-                        document.getElementById("timer").innerHTML = sec;
-                        sec--;
-                        if (sec == 00) {
-                            sec = 15;
-                        }
-                    }, 1000);
-                }
-
-            </script>
-        }
+</script>
+}      
