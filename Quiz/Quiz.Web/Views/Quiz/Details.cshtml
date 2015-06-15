@@ -24,7 +24,7 @@
         var sortearOrdemPergunta = {};
         var OrdemRespostas = {};
         var sortearOrdemRespostas = {};
-        var questaoCerta = {};
+        var questaoCerta = '';
 
 
         $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
@@ -59,8 +59,8 @@
         function mostraQuestao(questaoAtual) {
 
             questao.text(questaoAtual.Questao);
-            questaoCerta = questaoAtual.Resposta;
-            console.log('Certa:' + questaoCerta);
+            questaoCerta = '.'+questaoAtual.Resposta;
+            console.log(questaoCerta);
 
             ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
 
@@ -74,9 +74,16 @@
             $('.btn3  ').text(sortearOrdemRespostas[2]).addClass(sortearOrdemRespostas[2]);
             $('.btn4  ').text(sortearOrdemRespostas[3]).addClass(sortearOrdemRespostas[3]);
 
+            resposta();
         };
 
 
+        function resposta() {
+            $(questaoCerta).click(function () {
+                console.log('acertou');
+            });
+       
+        };
     </script>
 
 
