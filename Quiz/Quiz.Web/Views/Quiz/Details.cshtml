@@ -8,12 +8,11 @@
 </h2>
 
 
-<h1 class="questao">
-</h1>
-<p><a class="btn btn1 btn-primary btn-lg">aaa</a></p>
-<p><a class="btn btn2 btn-primary btn-lg">aaa</a></p>
-<p><a class="btn btn3 btn-primary btn-lg">aaa</a></p>
-<p><a class="btn btn4 btn-primary btn-lg">aaa</a></p>
+<h1 class="questao"></h1>
+<p><a class="btn btn1 btn-primary btn-lg"></a></p>
+<p><a class="btn btn2 btn-primary btn-lg"></a></p>
+<p><a class="btn btn3 btn-primary btn-lg"></a></p>
+<p><a class="btn btn4 btn-primary btn-lg"></a></p>
 
 
 @section Scripts{
@@ -25,8 +24,8 @@
         var sortearOrdemPergunta = {};
         var OrdemRespostas = {};
         var sortearOrdemRespostas = {};
-        var questaoAtual = {};
-       
+        var questaoCerta = {};
+
 
         $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
           .done(function (response) {
@@ -37,17 +36,16 @@
               }).slice(0, 5);
               remover();
           });
-        
+
 
 
         function remover() {
             questaoAtual = sortearOrdemPergunta[0];
             sortearOrdemPergunta.splice(0, 1);
-            console.log('remover');
             mostraQuestao(questaoAtual);
-            
+
         }
-        
+
         $(function () {
             $('.btn').click(function () {
                 remover();
@@ -55,36 +53,28 @@
         })
 
 
+    
+
+
         function mostraQuestao(questaoAtual) {
 
             questao.text(questaoAtual.Questao);
-           
+            questaoCerta = questaoAtual.Resposta;
+            console.log('Certa:' + questaoCerta);
+
             ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
-           
-            console.log(ordemRespostas);
+
 
             sortearOrdemRespostas = jQuery(ordemRespostas).get().sort(function () {
                 return Math.round(Math.random()) - 0.5
             }).slice(0, 5);
-            console.log(sortearOrdemRespostas);
-            console.log(sortearOrdemRespostas[0]);
-            $('.btn1  ').text(sortearOrdemRespostas[0]);
-            $('.btn2  ').text(sortearOrdemRespostas[1]);
-            $('.btn3  ').text(sortearOrdemRespostas[2]);
-            $('.btn4  ').text(sortearOrdemRespostas[3]);
-    
-        };    
-    
 
+            $('.btn1  ').text(sortearOrdemRespostas[0]).addClass(sortearOrdemRespostas[0]);
+            $('.btn2  ').text(sortearOrdemRespostas[1]).addClass(sortearOrdemRespostas[1]);
+            $('.btn3  ').text(sortearOrdemRespostas[2]).addClass(sortearOrdemRespostas[2]);
+            $('.btn4  ').text(sortearOrdemRespostas[3]).addClass(sortearOrdemRespostas[3]);
 
-
-      
-
-
-
-
-
-
+        };
 
 
     </script>
