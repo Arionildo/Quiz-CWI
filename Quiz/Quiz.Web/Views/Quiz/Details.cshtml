@@ -9,97 +9,155 @@
 
 
 <h1 class="questao"></h1>
-<p><a class="btn btn1 btn-primary btn-lg"></a></p>
-<p><a class="btn btn2 btn-primary btn-lg"></a></p>
-<p><a class="btn btn3 btn-primary btn-lg"></a></p>
-<p><a class="btn btn4 btn-primary btn-lg"></a></p>
+<div class="respostas">
+    <p><a class="btn btn1 btn-primary btn-lg"></a></p>
+    <p><a class="btn btn2 btn-primary btn-lg"></a></p>
+    <p><a class="btn btn3 btn-primary btn-lg"></a></p>
+    <p><a class="btn btn4 btn-primary btn-lg"></a></p>
+</div>
 
-<span id="timer"></span>
+<span id="timer">15</span>
+<button onclick="myStopFunction()">Stop time</button>
 
-        @section Scripts{
-            <script>
+@section Scripts{
+    <script>
+        //alert(qtdRestaurantes);
 
-                //Contador regressivo
-
-                var timer = function () {
-                    var sec = 15;
-                    setInterval(function () {
-                        document.getElementById("timer").innerHTML = sec;
-                        sec--;
-                    }, 1000);
-                }
-
-                window.onload = timer();
-
-                //alert(qtdRestaurantes);
-
-                var questao = $('.questao');
-
-                var sortearOrdemPergunta = {};
-                var OrdemRespostas = {};
-                var sortearOrdemRespostas = {};
-                var questaoCerta = '';
-
-
-                $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
-                  .done(function (response) {
-
-
-                      sortearOrdemPergunta = jQuery(response).get().sort(function () {
-                          return Math.round(Math.random()) - 0.5
-                      }).slice(0, 5);
-                      remover();
-                  });
+        var questao = $('.questao');
+        var sortearOrdemPergunta = {};
+        var OrdemRespostas = {};
+        var sortearOrdemRespostas = {};
+        var questaoCerta = '';
+        var questaoRespondida = '';
+        var sec = 0;
+        var contador = {};
 
 
 
-                function remover() {
-                    questaoAtual = sortearOrdemPergunta[0];
-                    sortearOrdemPergunta.splice(0, 1);
-                    mostraQuestao(questaoAtual);
+        $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
+          .done(function (response) {
 
-                }
+
+              sortearOrdemPergunta = jQuery(response).get().sort(function () {
+                  return Math.round(Math.random()) - 0.5
+              }).slice(0, 5);
+              remover();
+          });
+
+
+
+        function remover() {
+            questaoAtual = sortearOrdemPergunta[0];
+            sortearOrdemPergunta.splice(0, 1);
+            mostraQuestao(questaoAtual);
+
+        }
+
+
+
+        $(function () {
+            $('.btn').click(function () {
+
+                //pausa o contador
+                myStopFunction()
 
                 $(function () {
-                    $('.btn').click(function () {
-                        clearInterval(timer);
-                        remover();
-                    });
-                })
+                    $('.btn').css('pointer-events', 'none');
+                });
+                questaoRespondida = "#" + $(this).attr('id').replace(" ", "-");
+
+                //console.log('Questao Respondida: ' + questaoRespondida);
 
 
 
+                console.log(questaoRespondida + ' - ' + questaoCerta + '-' + sec);
 
 
-                function mostraQuestao(questaoAtual) {
+                if (questaoRespondida === questaoCerta) {
+                    $(questaoRespondida).addClass('btn-success');
+                    console.log('Certo - ');
+                } else {
+                    console.log('Errado - ');
 
-                    questao.text(questaoAtual.Questao);
-                    questaoCerta = '.' + questaoAtual.Resposta;
-                    console.log(questaoCerta);
+                    $(questaoCerta).addClass('btn-success');
 
-                    ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
-
-
-                    sortearOrdemRespostas = jQuery(ordemRespostas).get().sort(function () {
-                        return Math.round(Math.random()) - 0.5
-                    }).slice(0, 5);
-
-                    $('.btn1  ').text(sortearOrdemRespostas[0]).addClass(sortearOrdemRespostas[0]);
-                    $('.btn2  ').text(sortearOrdemRespostas[1]).addClass(sortearOrdemRespostas[1]);
-                    $('.btn3  ').text(sortearOrdemRespostas[2]).addClass(sortearOrdemRespostas[2]);
-                    $('.btn4  ').text(sortearOrdemRespostas[3]).addClass(sortearOrdemRespostas[3]);
-
-                    resposta();
+                    $(questaoRespondida).addClass('btn-danger')
                 };
 
+                setTimeout(
+                  function () {
+                      $(function () {
+                          $('.btn').css('pointer-events', 'auto');
+                      });
+                      $(".respostas").find(".btn-success").removeClass("btn-success")
+                      $(".respostas").find(".btn-danger").removeClass("btn-danger")
+                      sec = 16;
+                      remover();
 
-                function resposta() {
-                    $(questaoCerta).click(function () {
-                        clearInterval(timer);
-                        console.log('acertou');
-                    });
+                      //reinicia o contador
+                      contador = setInterval(function () { myTimer() }, 1000);
 
-                };
+                  }, 3000);
 
-</script>
-}      
+
+
+
+            });
+        });
+
+
+
+
+        function mostraQuestao(questaoAtual) {
+
+            questao.text(questaoAtual.Questao);
+            questaoCerta = '.' + questaoAtual.Resposta;
+            console.log(questaoCerta);
+
+
+            questao.text(questaoAtual.Questao);
+
+            questaoCerta = '#' + questaoAtual.Resposta.replace(" ", "-");
+            //console.log('Respora certa: ' + questaoAtual.Resposta);
+
+            ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
+
+
+
+            sortearOrdemRespostas = jQuery(ordemRespostas).get().sort(function () {
+                return Math.round(Math.random()) - 0.5
+            }).slice(0, 5);
+
+            $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].replace(" ", "-"));
+            $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].replace(" ", "-"));
+            $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].replace(" ", "-"));
+            $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].replace(" ", "-"));
+
+
+
+
+            //resposta();
+        };
+
+
+        //Contador regressivo
+
+
+        sec = 15;
+        var contador = setInterval(function(){myTimer()}, 1000);
+
+
+        function myTimer()
+        {
+            sec--;
+            if (sec == 00) { sec = 15; }
+            document.getElementById("timer").innerHTML = sec
+        }
+
+        function myStopFunction()
+        {
+            clearInterval(contador);
+        }
+
+    </script>
+}
