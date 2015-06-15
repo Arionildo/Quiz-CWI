@@ -9,11 +9,12 @@
 
 
 <h1 class="questao"></h1>
-<p><a class="btn btn1 btn-primary btn-lg"></a></p>
-<p><a class="btn btn2 btn-primary btn-lg"></a></p>
-<p><a class="btn btn3 btn-primary btn-lg"></a></p>
-<p><a class="btn btn4 btn-primary btn-lg"></a></p>
-
+<div class="respostas">
+    <p><a class="btn btn1 btn-primary btn-lg"></a></p>
+    <p><a class="btn btn2 btn-primary btn-lg"></a></p>
+    <p><a class="btn btn3 btn-primary btn-lg"></a></p>
+    <p><a class="btn btn4 btn-primary btn-lg"></a></p>
+</div>
 
 @section Scripts{
     <script>
@@ -25,6 +26,7 @@
         var OrdemRespostas = {};
         var sortearOrdemRespostas = {};
         var questaoCerta = '';
+        var questaoRespondida = '';
 
 
         $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
@@ -46,11 +48,36 @@
 
         }
 
-        $(function () {
+
+       $(function () {
             $('.btn').click(function () {
-                remover();
+                questaoRespondida = "#" + $(this).attr('id').replace(" ", "-");
+                //console.log('Questao Respondida: ' + questaoRespondida);
+              
+
+                console.log(questaoRespondida + ' - ' + questaoCerta);
+                if (questaoRespondida === questaoCerta) {
+                    $(questaoRespondida).addClass('btn-success');
+                    console.log('Certo - ');
+                } else {
+                    console.log('Errado - ');
+
+                    $(questaoCerta).addClass('btn-success');
+
+                    $(questaoRespondida).addClass('btn-danger')
+                };
+                setTimeout(
+                  function () {
+                      $(".respostas").find(".btn-success").removeClass("btn-success")
+                      $(".respostas").find(".btn-danger").removeClass("btn-danger")
+                    
+                      remover();
+                  }, 3000);
+             
+              
+                
             });
-        })
+        });
 
 
     
@@ -59,8 +86,9 @@
         function mostraQuestao(questaoAtual) {
 
             questao.text(questaoAtual.Questao);
-            questaoCerta = '.'+questaoAtual.Resposta;
-            console.log(questaoCerta);
+            
+            questaoCerta = '#' + questaoAtual.Resposta.replace(" ", "-");
+            //console.log('Respora certa: ' + questaoAtual.Resposta);
 
             ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
 
@@ -69,20 +97,20 @@
                 return Math.round(Math.random()) - 0.5
             }).slice(0, 5);
 
-            $('.btn1  ').text(sortearOrdemRespostas[0]).addClass(sortearOrdemRespostas[0]);
-            $('.btn2  ').text(sortearOrdemRespostas[1]).addClass(sortearOrdemRespostas[1]);
-            $('.btn3  ').text(sortearOrdemRespostas[2]).addClass(sortearOrdemRespostas[2]);
-            $('.btn4  ').text(sortearOrdemRespostas[3]).addClass(sortearOrdemRespostas[3]);
+            $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].replace(" ", "-"));
+            $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].replace(" ", "-"));
+            $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].replace(" ", "-"));
+            $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].replace(" ", "-"));
 
-            resposta();
+            
+
+       
+            //resposta();
         };
 
 
         function resposta() {
-            $(questaoCerta).click(function () {
-                console.log('acertou');
-            });
-       
+           
         };
     </script>
 
