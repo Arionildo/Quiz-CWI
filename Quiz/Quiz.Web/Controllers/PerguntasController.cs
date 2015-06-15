@@ -39,16 +39,8 @@ namespace Quiz.Web.Controllers
         // GET: Perguntas/Create
         public ActionResult Create()
         {
-            //MODEL PARA PEGAR A LISTA DE 'CATEGORIAS' ATRIBUINDO AO OBJETO 'CATEGORIA' DA CLASSE 'PERGUNTA'
-            var model = new Pergunta()
-            {
-                Categoria = new Categoria()
-                {
-                    ListaCategorias = GetCategorias()
-                }
-            };
-
-            return View(model);
+            ViewData["Categoria"] = new Categoria().GetCategorias();
+            return View();
         }
 
         // POST: Perguntas/Create
@@ -56,8 +48,14 @@ namespace Quiz.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Questao,Resposta,erradoA,erradoB,erradoC")] Pergunta pergunta)
+        public ActionResult Create([Bind(Include = "Id,Questao,Resposta,erradoA,erradoB,erradoC,NomeCategoria")] Pergunta pergunta)
         {
+            pergunta.Categoria_Id = db
+                                    .Categorias
+                                    .Where(x => x.Nome == pergunta.NomeCategoria)
+                                    .Select(y => y.Id)
+                                    .First();
+
             if (ModelState.IsValid)
             {
                 db.Perguntas.Add(pergunta);
@@ -132,19 +130,6 @@ namespace Quiz.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        //RETORNA UMA LISTA COM O ID E NOME DE CADA CATEGORIA
-        private IEnumerable<SelectListItem> GetCategorias()
-        {
-            var lista = db.Categorias.Select(x =>
-                                new SelectListItem
-                                {
-                                    Value = x.Id.ToString(),
-                                    Text = x.Nome
-                                });
-
-            return new SelectList(lista, "Value", "Text");
         }
     }
 }

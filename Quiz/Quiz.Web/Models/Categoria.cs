@@ -1,20 +1,33 @@
 ﻿
+using Quiz.Web.Models;
 using System.Collections.Generic;
-using Quiz.Dominio;
+using System.Linq;
 using System.Web.Mvc;
-
+﻿
 namespace Quiz.Web
 {
     public class Categoria : Entidade
     {
+        ApplicationDbContext db = new ApplicationDbContext();
 
         public string Nome { get; set; }
 
         public string Descricao { get; set; }
 
-        public IEnumerable<SelectListItem> ListaCategorias { get; set; }
-
         public ICollection<Pergunta> Pergunta { get; set; }
+
+        //RETORNA UMA LISTA COM O ID E NOME DE CADA CATEGORIA
+        public SelectList GetCategorias()
+        {
+            var lista = db.Categorias.Select(x =>
+                                new SelectListItem
+                                {
+                                    Value = x.Nome,
+                                    Text = x.Nome
+                                });
+
+            return new SelectList(lista, "Value", "Text");
+        }
     }
 }
 

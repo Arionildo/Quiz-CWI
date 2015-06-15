@@ -83,7 +83,7 @@ namespace Quiz.Web.Migrations
             #region Comidas E Bebidas
                  new Pergunta
                  {
-                     Questao = "A Caipirinha é uma das bebidas brasileiras mais conhecidas nacionalmente e internacionalmente. A Caipirinha tem origem de qual estado brasileiro??",
+                     Questao = "A Caipirinha é uma das bebidas brasileiras mais conhecidas nacionalmente e internacionalmente. A Caipirinha tem origem de qual estado brasileiro?",
                      Resposta = "Mato Grosso do Sul",
                      erradoA = "Espírito Santo",
                      erradoB = "São Paulo",
@@ -92,11 +92,11 @@ namespace Quiz.Web.Migrations
                  },
                 new Pergunta
                 {
-                    Questao = "O verdadeiro churrasco tradicional do Rio Grande do Sul é temperado, essencialmente, com:?",
+                    Questao = "O verdadeiro churrasco tradicional do Rio Grande do Sul é temperado, essencialmente, com:",
                     Resposta = "Sal grosso",
                     erradoA = "Vinho tinto",
-                    erradoB = "azeite de oliva",
-                    erradoC = "limão",
+                    erradoB = "Azeite de oliva",
+                    erradoC = "Limão",
                     Categoria_Id = 2
                 },
                 new Pergunta
