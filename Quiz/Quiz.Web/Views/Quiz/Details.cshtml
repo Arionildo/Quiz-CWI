@@ -16,17 +16,20 @@
     <p><a class="btn btn4 btn-primary btn-lg"></a></p>
 </div>
 
+<span id="timer">15</span>
+
+
 @section Scripts{
     <script>
         //alert(qtdRestaurantes);
 
         var questao = $('.questao');
-
         var sortearOrdemPergunta = {};
         var OrdemRespostas = {};
         var sortearOrdemRespostas = {};
         var questaoCerta = '';
         var questaoRespondida = '';
+
 
 
         $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
@@ -49,11 +52,12 @@
         }
 
 
-       $(function () {
+
+        $(function () {
             $('.btn').click(function () {
                 questaoRespondida = "#" + $(this).attr('id').replace(" ", "-");
                 //console.log('Questao Respondida: ' + questaoRespondida);
-              
+
 
                 console.log(questaoRespondida + ' - ' + questaoCerta);
                 if (questaoRespondida === questaoCerta) {
@@ -70,27 +74,33 @@
                   function () {
                       $(".respostas").find(".btn-success").removeClass("btn-success")
                       $(".respostas").find(".btn-danger").removeClass("btn-danger")
-                    
+
                       remover();
                   }, 3000);
-             
-              
-                
+
+
+
+
             });
         });
 
 
-    
 
 
         function mostraQuestao(questaoAtual) {
 
             questao.text(questaoAtual.Questao);
-            
+            questaoCerta = '.' + questaoAtual.Resposta;
+            console.log(questaoCerta);
+
+
+            questao.text(questaoAtual.Questao);
+
             questaoCerta = '#' + questaoAtual.Resposta.replace(" ", "-");
             //console.log('Respora certa: ' + questaoAtual.Resposta);
 
             ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
+
 
 
             sortearOrdemRespostas = jQuery(ordemRespostas).get().sort(function () {
@@ -102,18 +112,26 @@
             $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].replace(" ", "-"));
             $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].replace(" ", "-"));
 
-            
 
-       
+
+
             //resposta();
         };
 
 
-        function resposta() {
-           
-        };
+        //Contador regressivo
+
+        window.onload = function () {
+            var sec = 15;
+            setInterval(function () {
+
+                document.getElementById("timer").innerHTML = sec;
+                sec--;
+                if (sec == 00) {
+                    sec = 15;
+                }
+            }, 1000);
+        }
+
     </script>
-
-
-
 }
