@@ -1,5 +1,6 @@
 namespace Quiz.Web.Migrations
 {
+    using Quiz.Web.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -9,7 +10,7 @@ namespace Quiz.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Quiz.Web.Models.ApplicationDbContext context)
@@ -28,6 +29,7 @@ namespace Quiz.Web.Migrations
                 new Categoria { Nome = "Música",                Descricao = "Questões relacionadas à bandas, cantores e todos os estilos musicais." },
                 new Categoria { Nome = "TV",                    Descricao = "Para aqueles quem não perdem uma novela, uma série ou até mesmo um programa de celebridades." }
             );
+
 
             context.Perguntas.AddOrUpdate(
                 p => p.Questao,
@@ -464,6 +466,18 @@ namespace Quiz.Web.Migrations
                 }
             #endregion
 
+            );
+
+
+            context.Pontuacaos.AddOrUpdate(
+                p => p.Usuario,
+                new Pontuacao
+                {
+                    Usuario = "arionildo@escouto.com",
+                    Pontos = 910,
+                    NomeCategoria = "Filme",
+                    Data = new DateTime(2015, 06, 15, 15, 51, 56)
+                }
             );
         }
     }
