@@ -187,19 +187,16 @@
                             Pontos: totalPontos
                         },
                         cache: false
-                    }).done(function(){
-                        
+                    }).done(function(resultado){
                         $(".navbar").after(function()
                         {
-                           
-
-                            return "<div class='fimJogo btn-lg btn-primary'>Fim de Jogo!<br>"
-                            +"Jogador: @User.Identity.Name<br>"
-                            +"Categoria: @ViewBag.id<br>"
-                            +"Pontuação Final: "+totalPontos+"</div>";
+                            return "<div class='fimJogo btn-lg btn-danger'>Fim de Jogo!<br>"
+                            +"Jogador: "+resultado.u+"<br>"
+                            +"Categoria: "+resultado.c+"<br>"
+                            +"Pontuação Final: "+resultado.p+"</div>";
                         });
                         $(".fimJogo").on("click", function() {
-                            window.location.href = "/Quiz";
+                            window.location.href = "/Quiz"; 
                         });
                     });
                 }
