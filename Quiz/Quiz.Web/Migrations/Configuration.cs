@@ -35,18 +35,18 @@ namespace Quiz.Web.Migrations
                 p => p.Questao,
 
             #region Ciência
- new Pergunta
- {
-     Questao = "Que tipo de rocha é a pedra mármore?",
-     Resposta = "Metamórfica",
-     erradoA = "Magmática",
-     erradoB = "Sedimentar",
-     erradoC = "Rudimentar",
-     Categoria_Id = 1
- },
                 new Pergunta
                 {
-                    Questao = "Como se chama a um lugar onde animais e plantas coabitam?",
+                    Questao = "Que tipo de rocha é a pedra mármore?",
+                    Resposta = "Metamórfica",
+                    erradoA = "Magmática",
+                    erradoB = "Sedimentar",
+                    erradoC = "Rudimentar",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Como se chama um lugar onde animais e plantas coabitam?",
                     Resposta = "Habitat",
                     erradoA = "Jardim botânico",
                     erradoB = "Casa",
@@ -73,25 +73,70 @@ namespace Quiz.Web.Migrations
                 },
                 new Pergunta
                 {
-                    Questao = "Que nome se dá à Luz solar reflectida pela Lua?",
-                    Resposta = "Luar",
-                    erradoA = "Luz vísivel",
-                    erradoB = "Noite",
-                    erradoC = "Eclipse lunar",
+                    Questao = "A lua não produz luz mas, mesmo assim, brilha à noite. Porquê?",
+                    Resposta = "Porque reflete a luz do sol",
+                    erradoA = "Pois gira a uma velocidade altíssima",
+                    erradoB = "Pois possui várias crateras",
+                    erradoC = "Porque é coberta por uma fina camada de gelo",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome do processo natural que transforma o vapor em água?",
+                    Resposta = "Liquefação",
+                    erradoA = "Fusão",
+                    erradoB = "Calefação",
+                    erradoC = "Solidificação",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Qual gás está presente em maior quantidade na atmosfera terrestre?",
+                    Resposta = "Nitrogênio",
+                    erradoA = "Gas carbônico",
+                    erradoB = "Oxigênio",
+                    erradoC = "Hidrogênio",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Qual a parte da física que estuda a energia térmica?",
+                    Resposta = "Termologia",
+                    erradoA = "Magnetismo",
+                    erradoB = "Mecânica",
+                    erradoC = "Eletricidade",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "Quanto equivale 373 Kelvin na escala Celsius?",
+                    Resposta = "100°C",
+                    erradoA = "90°C",
+                    erradoB = "0°C",
+                    erradoC = "125°C",
+                    Categoria_Id = 1
+                },
+                new Pergunta
+                {
+                    Questao = "O gás de cozinha possui nome e fórmula:",
+                    Resposta = "Butano - C4H10",
+                    erradoA = "Metano - CH4",
+                    erradoB = "Etano - C2H6",
+                    erradoC = "Pentano - C5H12",
                     Categoria_Id = 1
                 },
             #endregion
 
             #region Comidas E Bebidas
- new Pergunta
- {
-     Questao = "A Caipirinha é uma das bebidas brasileiras mais conhecidas nacionalmente e internacionalmente. A Caipirinha tem origem de qual estado brasileiro?",
-     Resposta = "Mato Grosso do Sul",
-     erradoA = "Espírito Santo",
-     erradoB = "São Paulo",
-     erradoC = "Pernambuco",
-     Categoria_Id = 2
- },
+                new Pergunta
+                {
+                    Questao = "A Caipirinha é uma das bebidas brasileiras mais conhecidas nacionalmente e internacionalmente. A Caipirinha tem origem de qual estado brasileiro?",
+                    Resposta = "Mato Grosso do Sul",
+                    erradoA = "Espírito Santo",
+                    erradoB = "São Paulo",
+                    erradoC = "Pernambuco",
+                    Categoria_Id = 2
+                },
                 new Pergunta
                 {
                     Questao = "O verdadeiro churrasco tradicional do Rio Grande do Sul é temperado, essencialmente, com:",
@@ -103,7 +148,7 @@ namespace Quiz.Web.Migrations
                 },
                 new Pergunta
                 {
-                    Questao = "Diz a lenda que a feijoada é uma invenção dos escravos, mas vale lembrar que não é um prato brasileiro e sim de origem Europeia. Em que país foi inventada a feijoada?",
+                    Questao = "Diferente do que o conhecimento popular diz, a feijoada não foi criada por escravos. Em que país foi inventada a feijoada?",
                     Resposta = "Portugal",
                     erradoA = "Alemanha",
                     erradoB = "Itália",
@@ -323,49 +368,184 @@ namespace Quiz.Web.Migrations
             #endregion
 
             #region Jogos
- new Pergunta
- {
-     Questao = "Qual a cor do cavalo branco de Napoleão?",
-     Resposta = "Branco",
-     erradoA = "Não sei",
-     erradoB = "Vou perguntar pra minha mãe",
-     erradoC = "Minha mãe não sabe",
-     Categoria_Id = 7
- },
                 new Pergunta
                 {
-                    Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
-                    Resposta = "Vermelha",
-                    erradoA = "Marrom",
-                    erradoB = "Azul claro",
-                    erradoC = "Amarelo",
+                    Questao = "Qual o nome da espada do personagem principal no jogo Final Fantasy VII?",
+                    Resposta = "Buster Sword",
+                    erradoA = "Excalibur",
+                    erradoB = "Murasame",
+                    erradoC = "Unbinding Sword",
                     Categoria_Id = 7
                 },
                 new Pergunta
                 {
-                    Questao = "Qual o nome científico do cacau?",
-                    Resposta = "Theobroma cacau",
-                    erradoA = "Malvaceae cacau",
-                    erradoB = "Petrosetinum cacau",
-                    erradoC = "Aechmea cacau",
+                    Questao = "Qual o nome do principal reino da série The Legend of Zelda?",
+                    Resposta = "Hyrule",
+                    erradoA = "Obsydia",
+                    erradoB = "Baron",
+                    erradoC = "Mushroom",
                     Categoria_Id = 7
                 },
                 new Pergunta
                 {
-                    Questao = "Qual é o lema nacional do Brasil?",
-                    Resposta = "Ordem e Progresso",
-                    erradoA = "Independência ou Morte",
-                    erradoB = "Pelo Brasil, façam-se grandes coisas",
-                    erradoC = "Unidade, Trabalho, Progresso",
+                    Questao = "Qual o nome do irmão de Mario na série SUper Mario Bros.?",
+                    Resposta = "Luigi",
+                    erradoA = "Alfredo",
+                    erradoB = "Lorenzo",
+                    erradoC = "Pietro",
                     Categoria_Id = 7
                 },
                 new Pergunta
                 {
-                    Questao = "O que é Bricabraque?",
-                    Resposta = "Coleção de objetos de artesanato",
-                    erradoA = "Coleção de armas",
-                    erradoB = "Coleção de jogo de cartas",
-                    erradoC = "Coleção de revistas em quadrinhos",
+                    Questao = "Como é conhecido o personagem principal do universo fictício do jogo Halo?",
+                    Resposta = "Master Chief",
+                    erradoA = "Master Leader",
+                    erradoB = "Major Connor",
+                    erradoC = "Officer John",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Em qual desses jogos, salvar a princesa não é um dos objetivos?",
+                    Resposta = "Castlevania: Symphony of the Night",
+                    erradoA = "Super Mario World",
+                    erradoB = "The Legend of Zelda: Minish Cap",
+                    erradoC = "Castle Crashers",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o significado do termo RPG(gênero)?",
+                    Resposta = "Role Playing Game",
+                    erradoA = "Recovery Point Game",
+                    erradoB = "Rocket-Propelled Grenade",
+                    erradoC = "Robbery Package Game",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "No jogo Pokémon Red, quem é o líder do ginásio da cidade de Cinnabar?",
+                    Resposta = "Blaine",
+                    erradoA = "Brock",
+                    erradoB = "Gary",
+                    erradoC = "Erika",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "No jogo The Elder Scrolls V: Skyrim, quais são as palavras para o Shout Unrelenting Force?",
+                    Resposta = "Fus Ro Dah",
+                    erradoA = "Iiz Slen Nus",
+                    erradoB = "Od Ah Viing",
+                    erradoC = "Joor Zah Frul",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome do personagem principal de Grand Theft Auto San Andreas?",
+                    Resposta = "Carl Johnson",
+                    erradoA = "Sweet Johnson",
+                    erradoB = "Madd Dogg",
+                    erradoC = "Salvatore Leone",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Em que reino é ambientado o jogo Dark Souls?",
+                    Resposta = "Lordran",
+                    erradoA = "Gurran",
+                    erradoB = "Mattrov",
+                    erradoC = "Orience",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome do antagonista do jogo Banjo-Tooie?",
+                    Resposta = "Gruntilda",
+                    erradoA = "Mingruge",
+                    erradoB = "Blobbelda",
+                    erradoC = "Mingella",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Na série de jogos Crash Bandicoot, quem é Aku Aku?",
+                    Resposta = "A máscara tribal que acompanha Crash",
+                    erradoA = "O dr. do mal, antagonista do jogo",
+                    erradoB = "A irmã de Crash",
+                    erradoC = "O Chefe que o ataca com um lança-chamas",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Com que título o jogo Shadow of The Colossus foi lançado no Japão?",
+                    Resposta = "Wander and the Colossus",
+                    erradoA = "Darkness of Colossus",
+                    erradoB = "Nightmare Colossus",
+                    erradoC = "The Legend of Colossus",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "No jogo God of War, qual é o nome das lâminas principais usadas pro Kratos?",
+                    Resposta = "Lâminas do Caos",
+                    erradoA = "Lâminas de Artemis",
+                    erradoB = "Lâminas dos Deuses",
+                    erradoC = "Lâminas de Ares",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Na série Sonic The Hedgehog, quem é o melhor amigo e ajudante de Sonic?",
+                    Resposta = "Tails",
+                    erradoA = "Knuckles",
+                    erradoB = "Shadow",
+                    erradoC = "Amy",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Como é conhecido Mega man no Japão?",
+                    Resposta = "Rockman",
+                    erradoA = "Shootman",
+                    erradoB = "Ultra man",
+                    erradoC = "Cannon man",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o principal poder do pássaro preto no jogo Angry Birds?",
+                    Resposta = "Explodir",
+                    erradoA = "Soltar um ovo explosivo",
+                    erradoB = "Partir madeira com facilidade",
+                    erradoC = "Partir vidro com facilidade",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "No jogo Clash of Clans, qual o nome do líquido rosado utilizado como recurso?",
+                    Resposta = "Elixir",
+                    erradoA = "Goma de mascar",
+                    erradoB = "Poção",
+                    erradoC = "Líquido energético",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome da série de jogos da Nintendo cujos personagens são macacos?",
+                    Resposta = "Donkey Kong",
+                    erradoA = "King Kong",
+                    erradoB = "Kong Lord",
+                    erradoC = "Banana Kong",
+                    Categoria_Id = 7
+                },
+                new Pergunta
+                {
+                    Questao = "Qual o nome do protagonista da série Half Life?",
+                    Resposta = "Gordon Freeman",
+                    erradoA = "Gordon Mccartney",
+                    erradoB = "Gordon Lee",
+                    erradoC = "Gordon Smith",
                     Categoria_Id = 7
                 },
             #endregion
