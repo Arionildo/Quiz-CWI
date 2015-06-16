@@ -28,6 +28,12 @@ namespace Quiz.Web
 
             return new SelectList(lista, "Value", "Text");
         }
+
+        //RETORNA O NOME DA CADA CATEGORIA DE ACORDO COM O ID
+        public string GetNomeCategoria(int id)
+        {
+            return db.Categorias.Where(x => x.Id == id).Select(y => y.Nome).First();
+        }
     }
 }
 

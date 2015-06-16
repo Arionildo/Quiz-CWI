@@ -16,10 +16,14 @@ namespace Quiz.Web.Controllers
         public ActionResult Index()
         {
 
+                 
+            
             return View(db.Categorias.ToList());
+
+
         }
 
-
+ 
         public ActionResult Details(int? id)
         {
             @ViewBag.id = id;
@@ -32,9 +36,9 @@ namespace Quiz.Web.Controllers
         public JsonResult Perguntas(int? id)
         {
            
-            var aa = db.Perguntas.Where(x => x.Categoria_Id == id).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
+            var retornoPerguntas = db.Perguntas.Where(x => x.Categoria_Id == id).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
 
-            return Json(aa, JsonRequestBehavior.AllowGet);
+            return Json(retornoPerguntas, JsonRequestBehavior.AllowGet);
 
           
         }
@@ -48,6 +52,20 @@ namespace Quiz.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public bool Pontuacao([Bind(Include = "Id,Usuario,Pontos")] Pontuacao pontuacao, int cat)
+        {
+            pontuacao.NomeCategoria = db.Categorias.Where(x => x.Id == cat).Select(y => y.Nome).First();
+            pontuacao.Data = DateTime.Now;
+            //PROCURA A CATEGORIA PELO ID PARA OBTER A CATEGORIA COMPLETA
+            pontuacao.Categoria = db.Categorias.Find(cat);
+
+            //PERSISTE OS DADOS NO BANCO
+            db.Pontuacaos.Add(pontuacao);
+            db.SaveChanges();
+
+            return true;
         }
            
     }
