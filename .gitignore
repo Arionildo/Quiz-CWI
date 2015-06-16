@@ -214,3 +214,5 @@ Quiz/Quiz.Web/Migrations/201506151854163_CreateDataBase.cs
 Quiz/Quiz.Web/Migrations/*CreateDataBase*
 Quiz/Quiz.Web/Migrations/201506152036583_banco.Designer.cs
 Quiz/Quiz.Web/Migrations/201506152036583_banco.cs
+Quiz/Quiz.Web/Migrations/201506161644547_banco.cs
+Quiz/Quiz.Web/Migrations/201506161644547_banco.Designer.cs
