@@ -466,7 +466,7 @@ namespace Quiz.Web.Migrations
                 }
             #endregion
 
-);
+            );
 
 
             context.Pontuacaos.AddOrUpdate(
@@ -477,10 +477,7 @@ namespace Quiz.Web.Migrations
                     Pontos = 910,
                     NomeCategoria = "Filme",
                     Data = new DateTime(2015, 06, 15, 15, 51, 56),
-                    Categoria = new Categoria
-                    {
-                        Id = 5
-                    }
+                    Categoria = new Categoria { Nome = "Filme", Descricao = "Tudo sobre filmes, atores e, quem sabe, até diretores!" }
                 }
             );
         }

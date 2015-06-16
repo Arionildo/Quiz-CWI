@@ -53,14 +53,12 @@ namespace Quiz.Web.Controllers
         public bool Pontuacao([Bind(Include = "Id,Usuario,Pontos")] Pontuacao pontuacao, int cat)
         {
             pontuacao.NomeCategoria = db.Categorias.Where(x => x.Id == cat).Select(y => y.Nome).First();
-            
             pontuacao.Data = DateTime.Now;
+            //PROCURA A CATEGORIA PELO ID PARA OBTER A CATEGORIA COMPLETA
+            pontuacao.Categoria = db.Categorias.Find(cat);
 
             //PERSISTE OS DADOS NO BANCO
             db.Pontuacaos.Add(pontuacao);
-            db.SaveChanges();
-            //ADAPTAÇÃO PROVISÓRIA PARA PERSISTIR O ID DA CATEGORIA(FOREIGN KEY)
-            db.Pontuacaos.SqlQuery("UPDATE [dbo].[Pontuacaos] SET [Categoria_Id] = @1 WHERE [Usuario] = @2", cat, pontuacao.Usuario);
             db.SaveChanges();
 
             return true;
