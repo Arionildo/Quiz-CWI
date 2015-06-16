@@ -1,44 +1,94 @@
-﻿@model IEnumerable<Quiz.Web.Models.Pontuacao>
+﻿@model Dictionary<String, IEnumerable<Quiz.Web.Models.Pontuacao>>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Ranking Semanal</h2>
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model["rankSemana"].ElementAt(0).Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model["rankSemana"].ElementAt(0).NomeCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model["rankSemana"].ElementAt(0).Pontos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model["rankSemana"].ElementAt(0).Data)
+            </th>
+           
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model["rankSemana"])
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pontos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+    
+
+
+<h2>Ranking Mensal</h2>
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeCategoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pontos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th></th>
-    </tr>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model["rankMes"].ElementAt(0).Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model["rankMes"].ElementAt(0).NomeCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model["rankMes"].ElementAt(0).Pontos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model["rankMes"].ElementAt(0).Data)
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeCategoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pontos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data)
-        </td>
- 
-    </tr>
-}
+        </tr>
 
+    </thead>
+    <tbody>
+        @foreach (var item in Model["rankMes"])
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCategoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pontos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+
+            </tr>
+        }
+    </tbody>
 </table>
+
