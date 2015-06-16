@@ -15,9 +15,8 @@ namespace Quiz.Web.Controllers
         // GET: Quiz
         public ActionResult Index()
         {
+       
 
-                 
-            
             return View(db.Categorias.ToList());
 
 

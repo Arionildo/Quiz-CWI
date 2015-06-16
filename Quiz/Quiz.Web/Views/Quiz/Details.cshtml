@@ -186,24 +186,23 @@
                             cat: @ViewBag.id,
                             Pontos: totalPontos
                         },
-                        cache: false
-                    }).done(function(){
-                        
-                        $(".navbar").after(function()
-                        {
-                           
+                        cache: false,
+                        success:(function(){
 
-                            return "<div class='fimJogo btn-lg btn-primary'>Fim de Jogo!<br>"
-                            +"Jogador: @User.Identity.Name<br>"
-                            +"Categoria: @ViewBag.id<br>"
-                            +"Pontuação Final: "+totalPontos+"</div>";
-                        });
-                        $(".fimJogo").on("click", function() {
-                            window.location.href = "/Quiz";
-                        });
-                    });
-                }
-            
+                            alert('acabou');
+                            $(".navbar").after(function()
+                            {
+                                return "<div class='fimJogo btn-lg btn-primary'>Fim de Jogo!<br>"
+                                +"Jogador: @User.Identity.Name<br>"
+                                +"Categoria: @ViewBag.id<br>"
+                                +"Pontuação Final: "+totalPontos+"</div>";
+                            });
+                            $(".fimJogo").on("click", function() {
+                                window.location.href = "/Quiz";
+                            });
+                        })
+
+                    })};
         
     </script>
 }

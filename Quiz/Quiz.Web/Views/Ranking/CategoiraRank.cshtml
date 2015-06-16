@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Quiz.Web.Categoria>
+@{
+    ViewBag.Title = "CategoiraRank";
+}
+
+<h2>Escolha uma Categoria</h2>
+
+
+@foreach (var item in Model)
+{
+    @Html.ActionLink(@item.Nome, "Index", new { id = item.Id }, new { @class = "btn btn-default" })
+}
