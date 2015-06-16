@@ -1,11 +1,9 @@
 ﻿@{
     ViewBag.Title = "Details";
 }
-
 <h2>
     Details
 </h2>
-
 
 <h1 class="questao"></h1>
 <div class="respostas">
@@ -14,10 +12,8 @@
     <p><a class="btn btn3 btn-primary btn-lg"></a></p>
     <p><a class="btn btn4 btn-primary btn-lg"></a></p>
 </div>
-
 <span id="timer">15</span>
 <button onclick="myStopFunction()">Stop time</button>
-
 @section Scripts{
     <script>
         //alert(qtdRestaurantes);
@@ -36,174 +32,172 @@
 
 
         $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
-          .done(function (response) {
+              .done(function (response) {
 
-              sortearOrdemPergunta = jQuery(response).get().sort(function () {
-                  return Math.round(Math.random()) - 0.5
-              }).slice(0, 5);
-              remover();
-          });
-
-
+                  sortearOrdemPergunta = jQuery(response).get().sort(function () {
+                      return Math.round(Math.random()) - 0.5
+                  }).slice(0, 10);
+                  remover();
+              });
 
 
 
-            function remover() {
+
+
+        function remover() {
+
+            //pausa o contador
+            myStopFunction();
+            questaoAtual = sortearOrdemPergunta[0];
+            sortearOrdemPergunta.splice(0, 1);
+
+            if (questaoAtual === undefined) {
+                salvar();
+            } else {
+                mostraQuestao(questaoAtual);
+            }
+        }
+
+
+
+        $(function () {
+            $('.btn').click(function () {
 
                 //pausa o contador
                 myStopFunction();
-                questaoAtual = sortearOrdemPergunta[0];
-                sortearOrdemPergunta.splice(0, 1);
 
-                if (questaoAtual === undefined) {
-                    salvar();
-                } else {
-                    mostraQuestao(questaoAtual);
-                }
+
+
+                $(function () {
+                    $('.btn').css('pointer-events', 'none');
+                });
+                questaoRespondida = "#" + $(this).attr('id').split(/[ ,]+/).join('-');
+
+                validar(questaoRespondida);
+
+
+
+
+
+            });
+        });
+
+
+        function validar(questaoRespondida) {
+            //pausa o contador
+            myStopFunction();
+
+
+            if (questaoRespondida === questaoCerta) {
+                var pontos = sec * 10;
+
+                totalTempo += (15 - sec);
+                totalPontos += pontos;
+
+
+                $(questaoRespondida).addClass('btn-success');
+            } else {
+                console.log('Erroooou')
+                $(questaoCerta).addClass('btn-success');
+
+                $(questaoRespondida).addClass('btn-danger')
+            };
+
+            setTimeout(
+              function () {
+                  $(function () {
+                      $('.btn').css('pointer-events', 'auto');
+                  });
+                  $(".respostas").find(".btn-success").removeClass("btn-success")
+                  $(".respostas").find(".btn-danger").removeClass("btn-danger")
+
+                  remover();
+
+              }, 150);
+
+        }
+
+
+
+        function mostraQuestao(questaoAtual) {
+
+            //reinicia o contador
+            sec = 16;
+            myTimer();
+            contador = setInterval(function () { myTimer() }, 1000);
+
+
+            questao.text(questaoAtual.Questao);
+            questaoCerta =  questaoAtual.Resposta;
+            console.log(questaoCerta);
+
+
+            questao.text(questaoAtual.Questao);
+
+            questaoCerta = '#' + questaoAtual.Resposta.split(/[ ,.]+/).join('-');
+            //console.log('Respora certa: ' + questaoAtual.Resposta);
+
+            ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
+
+
+
+            sortearOrdemRespostas = jQuery(ordemRespostas).get().sort(function () {
+                return Math.round(Math.random()) - 0.5
+            }).slice(0, 5);
+
+            $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].split(/[ ,.]+/).join('-'));
+            $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].split(/[ ,.]+/).join('-'));
+            $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].split(/[ ,.]+/).join('-'));
+            $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].split(/[ ,.]+/).join('-'));
+
+
+        };
+
+        function myTimer()
+        {
+            sec--;
+            if (sec == 00) {
+
+                sec = 15;
+                alert('nao repondeu');
+                remover();
+
             }
+            document.getElementById("timer").innerHTML = sec
+        }
+
+        function myStopFunction()
+        {
+            clearInterval(contador);
+        }
 
 
+        function salvar() {
+            $.ajax({
+                url: "@Url.Action("Pontuacao", "Quiz")",
+                type: "POST",
+                dataType: 'json',
+                data: {
+                    Usuario: "@User.Identity.Name",
+                    cat: @ViewBag.id,
+                    Pontos: totalPontos
+                },
 
-            $(function () {
-                $('.btn').click(function () {
-
-                    //pausa o contador
-                    myStopFunction();
-
-
-
-                    $(function () {
-                        $('.btn').css('pointer-events', 'none');
-                    });
-                    questaoRespondida = "#" + $(this).attr('id').split(/[ ,]+/).join('-');
-
-                    validar(questaoRespondida);
-
-
-
-
-
+                cache: false
+            }).done(function(resultado){
+                $(".navbar").after(function()
+                {
+                    return "<div class='fimJogo btn-lg btn-danger'>Fim de Jogo!<br>"
+                    +"Jogador: "+resultado.u+"<br>"
+                    +"Categoria: "+resultado.c+"<br>"
+                    +"Pontuação Final: "+resultado.p+"</div>";
+                });
+                $(".fimJogo").on("click", function() {
+                    window.location.href = "/Quiz";
                 });
             });
+        }
 
 
-            function validar(questaoRespondida) {
-                //pausa o contador
-                myStopFunction();
-
-
-                if (questaoRespondida === questaoCerta) {
-                    var pontos = sec * 10;
-
-                    totalTempo += (15 - sec);
-                    totalPontos += pontos;
-
-
-                    $(questaoRespondida).addClass('btn-success');
-                } else {
-                    console.log('Erroooou')
-                    $(questaoCerta).addClass('btn-success');
-
-                    $(questaoRespondida).addClass('btn-danger')
-                };
-            
-                setTimeout(
-                  function () {
-                      $(function () {
-                          $('.btn').css('pointer-events', 'auto');
-                      });
-                      $(".respostas").find(".btn-success").removeClass("btn-success")
-                      $(".respostas").find(".btn-danger").removeClass("btn-danger")
-
-                      remover();
-
-                  }, 150);
-
-            }
-
-
-
-                function mostraQuestao(questaoAtual) {
-
-                    //reinicia o contador
-                    sec = 16;
-                    myTimer();
-                    contador = setInterval(function () { myTimer() }, 1000);
-
-
-                    questao.text(questaoAtual.Questao);
-                    questaoCerta =  questaoAtual.Resposta;
-                    console.log(questaoCerta);
-
-
-                    questao.text(questaoAtual.Questao);
-
-                    questaoCerta = '#' + questaoAtual.Resposta.split(/[ ,]+/).join('-');
-                    //console.log('Respora certa: ' + questaoAtual.Resposta);
-
-                    ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
-
-
-
-                    sortearOrdemRespostas = jQuery(ordemRespostas).get().sort(function () {
-                        return Math.round(Math.random()) - 0.5
-                    }).slice(0, 5);
-
-                    $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].split(/[ ,]+/).join('-'));
-                    $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].split(/[ ,]+/).join('-'));
-                    $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].split(/[ ,]+/).join('-'));
-                    $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].split(/[ ,]+/).join('-'));
-
-
-                };
-
-                function myTimer()
-                {
-                    sec--;
-                    if (sec == 00) {
-
-                        sec = 15;
-                        alert('nao repondeu');
-                        remover();
-
-                    }
-                    document.getElementById("timer").innerHTML = sec
-                }
-
-                function myStopFunction()
-                {
-                    clearInterval(contador);
-                }
-
-
-                function salvar() {
-                    $.ajax({
-                        url: "@Url.Action("Pontuacao", "Quiz")",
-                        type: "POST",
-                        dataType: 'json',
-                        data: {
-                            Usuario: "@User.Identity.Name",
-                            cat: @ViewBag.id,
-                            Pontos: totalPontos
-                        },
-                        cache: false
-                    }).done(function(){
-                        
-                        $(".navbar").after(function()
-                        {
-                           
-
-                            return "<div class='fimJogo btn-lg btn-primary'>Fim de Jogo!<br>"
-                            +"Jogador: @User.Identity.Name<br>"
-                            +"Categoria: @ViewBag.id<br>"
-                            +"Pontuação Final: "+totalPontos+"</div>";
-                        });
-                        $(".fimJogo").on("click", function() {
-                            window.location.href = "/Quiz";
-                        });
-                    });
-                }
-            
-        
     </script>
 }
