@@ -53,7 +53,7 @@ namespace Quiz.Web.Controllers
             base.Dispose(disposing);
         }
 
-        public bool Pontuacao([Bind(Include = "Id,Usuario,Pontos")] Pontuacao pontuacao, int cat)
+        public JsonResult Pontuacao([Bind(Include = "Id,Usuario,Pontos")] Pontuacao pontuacao, int cat)
         {
             pontuacao.NomeCategoria = db.Categorias.Where(x => x.Id == cat).Select(y => y.Nome).First();
             pontuacao.Data = DateTime.Now;
@@ -64,7 +64,11 @@ namespace Quiz.Web.Controllers
             db.Pontuacaos.Add(pontuacao);
             db.SaveChanges();
 
-            return true;
+            return Json(new {
+                u = pontuacao.Usuario,
+                c = pontuacao.NomeCategoria,
+                p = pontuacao.Pontos
+            });
         }
            
     }
