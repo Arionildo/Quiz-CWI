@@ -53,6 +53,20 @@ namespace Quiz.Web.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public bool Pontuacao([Bind(Include = "Id,Usuario,Pontos")] Pontuacao pontuacao, int cat)
+        {
+            pontuacao.NomeCategoria = db.Categorias.Where(x => x.Id == cat).Select(y => y.Nome).First();
+            pontuacao.Data = DateTime.Now;
+            //PROCURA A CATEGORIA PELO ID PARA OBTER A CATEGORIA COMPLETA
+            pontuacao.Categoria = db.Categorias.Find(cat);
+
+            //PERSISTE OS DADOS NO BANCO
+            db.Pontuacaos.Add(pontuacao);
+            db.SaveChanges();
+
+            return true;
+        }
            
     }
 }

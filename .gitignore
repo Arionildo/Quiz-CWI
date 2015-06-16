@@ -207,4 +207,8 @@ Quiz/Quiz.Web/Migrations/201506142355498_CreateDataBase.cs
 *.csproj
 Quiz/Quiz.Web/Migrations/201506150224210_banco.Designer.cs
 Quiz/Quiz.Web/Migrations/201506150224210_banco.cs
+Quiz/Quiz.Web/Migrations/201506150158152_CreateDataBase.Designer.cs
+Quiz/Quiz.Web/Migrations/201506150158152_CreateDataBase.cs
+Quiz/Quiz.Web/Migrations/201506151854163_CreateDataBase.Designer.cs
+Quiz/Quiz.Web/Migrations/201506151854163_CreateDataBase.cs
 Quiz/Quiz.Web/Migrations/*CreateDataBase*

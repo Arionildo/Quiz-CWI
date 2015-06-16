@@ -19,15 +19,15 @@ namespace Quiz.Web.Migrations
 
             context.Categorias.AddOrUpdate(
                 p => p.Nome,
-                new Categoria { Nome = "Ciência",               Descricao = "Dos elementos que nos compõe até a física que nos segura na terra." },
-                new Categoria { Nome = "Comidas E Bebidas",     Descricao = "Desde os ingredientes à diversos pratos e bebidas existentes ao redor do mundo." },
-                new Categoria { Nome = "Conhecimentos Gerais",  Descricao = "Mistura de todos os assuntos das mais diversas áreas." },
-                new Categoria { Nome = "Esportes",              Descricao = "Todas as modalidades, do mais leve ao mais radical." },
-                new Categoria { Nome = "Filme",                 Descricao = "Tudo sobre filmes, atores e, quem sabe, até diretores!" },
-                new Categoria { Nome = "Geografia",             Descricao = "Lugares, climas, vegetações e tudo mais que a natureza tem a oferecer." },
-                new Categoria { Nome = "Jogos",                 Descricao = "'Piece of cake' para os mais aficionados em jogos, seus personagens e suas histórias." },
-                new Categoria { Nome = "Música",                Descricao = "Questões relacionadas à bandas, cantores e todos os estilos musicais." },
-                new Categoria { Nome = "TV",                    Descricao = "Para aqueles quem não perdem uma novela, uma série ou até mesmo um programa de celebridades." }
+                new Categoria { Nome = "Ciência", Descricao = "Dos elementos que nos compõe até a física que nos segura na terra." },
+                new Categoria { Nome = "Comidas E Bebidas", Descricao = "Desde os ingredientes à diversos pratos e bebidas existentes ao redor do mundo." },
+                new Categoria { Nome = "Conhecimentos Gerais", Descricao = "Mistura de todos os assuntos das mais diversas áreas." },
+                new Categoria { Nome = "Esportes", Descricao = "Todas as modalidades, do mais leve ao mais radical." },
+                new Categoria { Nome = "Filme", Descricao = "Tudo sobre filmes, atores e, quem sabe, até diretores!" },
+                new Categoria { Nome = "Geografia", Descricao = "Lugares, climas, vegetações e tudo mais que a natureza tem a oferecer." },
+                new Categoria { Nome = "Jogos", Descricao = "'Piece of cake' para os mais aficionados em jogos, seus personagens e suas histórias." },
+                new Categoria { Nome = "Música", Descricao = "Questões relacionadas à bandas, cantores e todos os estilos musicais." },
+                new Categoria { Nome = "TV", Descricao = "Para aqueles quem não perdem uma novela, uma série ou até mesmo um programa de celebridades." }
             );
 
 
@@ -35,15 +35,15 @@ namespace Quiz.Web.Migrations
                 p => p.Questao,
 
             #region Ciência
-                new Pergunta
-                {
-                    Questao = "Que tipo de rocha é a pedra mármore?",
-                    Resposta = "Metamórfica",
-                    erradoA = "Magmática",
-                    erradoB = "Sedimentar",
-                    erradoC = "Rudimentar",
-                    Categoria_Id = 1
-                },
+ new Pergunta
+ {
+     Questao = "Que tipo de rocha é a pedra mármore?",
+     Resposta = "Metamórfica",
+     erradoA = "Magmática",
+     erradoB = "Sedimentar",
+     erradoC = "Rudimentar",
+     Categoria_Id = 1
+ },
                 new Pergunta
                 {
                     Questao = "Como se chama a um lugar onde animais e plantas coabitam?",
@@ -81,17 +81,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 1
                 },
             #endregion
-            
+
             #region Comidas E Bebidas
-                 new Pergunta
-                 {
-                     Questao = "A Caipirinha é uma das bebidas brasileiras mais conhecidas nacionalmente e internacionalmente. A Caipirinha tem origem de qual estado brasileiro?",
-                     Resposta = "Mato Grosso do Sul",
-                     erradoA = "Espírito Santo",
-                     erradoB = "São Paulo",
-                     erradoC = "Pernambuco",
-                     Categoria_Id = 2
-                 },
+ new Pergunta
+ {
+     Questao = "A Caipirinha é uma das bebidas brasileiras mais conhecidas nacionalmente e internacionalmente. A Caipirinha tem origem de qual estado brasileiro?",
+     Resposta = "Mato Grosso do Sul",
+     erradoA = "Espírito Santo",
+     erradoB = "São Paulo",
+     erradoC = "Pernambuco",
+     Categoria_Id = 2
+ },
                 new Pergunta
                 {
                     Questao = "O verdadeiro churrasco tradicional do Rio Grande do Sul é temperado, essencialmente, com:",
@@ -129,17 +129,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 2
                 },
             #endregion
-            
+
             #region Conhecimentos Gerais
-                new Pergunta
-                {
-                    Questao = "Qual a cor do cavalo branco de Napoleão?",
-                    Resposta = "Branco",
-                    erradoA = "Não sei",
-                    erradoB = "Vou perguntar pra minha mãe",
-                    erradoC = "Minha mãe não sabe",
-                    Categoria_Id = 3
-                },
+ new Pergunta
+ {
+     Questao = "Qual a cor do cavalo branco de Napoleão?",
+     Resposta = "Branco",
+     erradoA = "Não sei",
+     erradoB = "Vou perguntar pra minha mãe",
+     erradoC = "Minha mãe não sabe",
+     Categoria_Id = 3
+ },
                 new Pergunta
                 {
                     Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
@@ -177,17 +177,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 3
                 },
             #endregion
-            
+
             #region Esportes
-                 new Pergunta
-                 {
-                     Questao = "Qual a cor do cavalo branco de Napoleão?",
-                     Resposta = "Branco",
-                     erradoA = "Não sei",
-                     erradoB = "Vou perguntar pra minha mãe",
-                     erradoC = "Minha mãe não sabe",
-                     Categoria_Id = 4
-                 },
+ new Pergunta
+ {
+     Questao = "Qual a cor do cavalo branco de Napoleão?",
+     Resposta = "Branco",
+     erradoA = "Não sei",
+     erradoB = "Vou perguntar pra minha mãe",
+     erradoC = "Minha mãe não sabe",
+     Categoria_Id = 4
+ },
                 new Pergunta
                 {
                     Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
@@ -225,17 +225,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 4
                 },
             #endregion
-            
+
             #region Filme
-                 new Pergunta
-                 {
-                     Questao = "Qual a cor do cavalo branco de Napoleão?",
-                     Resposta = "Branco",
-                     erradoA = "Não sei",
-                     erradoB = "Vou perguntar pra minha mãe",
-                     erradoC = "Minha mãe não sabe",
-                     Categoria_Id = 5
-                 },
+ new Pergunta
+ {
+     Questao = "Qual a cor do cavalo branco de Napoleão?",
+     Resposta = "Branco",
+     erradoA = "Não sei",
+     erradoB = "Vou perguntar pra minha mãe",
+     erradoC = "Minha mãe não sabe",
+     Categoria_Id = 5
+ },
                 new Pergunta
                 {
                     Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
@@ -273,17 +273,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 5
                 },
             #endregion
-            
+
             #region Geografia
-                 new Pergunta
-                 {
-                     Questao = "Qual a cor do cavalo branco de Napoleão?",
-                     Resposta = "Branco",
-                     erradoA = "Não sei",
-                     erradoB = "Vou perguntar pra minha mãe",
-                     erradoC = "Minha mãe não sabe",
-                     Categoria_Id = 6
-                 },
+ new Pergunta
+ {
+     Questao = "Qual a cor do cavalo branco de Napoleão?",
+     Resposta = "Branco",
+     erradoA = "Não sei",
+     erradoB = "Vou perguntar pra minha mãe",
+     erradoC = "Minha mãe não sabe",
+     Categoria_Id = 6
+ },
                 new Pergunta
                 {
                     Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
@@ -321,17 +321,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 6
                 },
             #endregion
-            
+
             #region Jogos
-                 new Pergunta
-                 {
-                     Questao = "Qual a cor do cavalo branco de Napoleão?",
-                     Resposta = "Branco",
-                     erradoA = "Não sei",
-                     erradoB = "Vou perguntar pra minha mãe",
-                     erradoC = "Minha mãe não sabe",
-                     Categoria_Id = 7
-                 },
+ new Pergunta
+ {
+     Questao = "Qual a cor do cavalo branco de Napoleão?",
+     Resposta = "Branco",
+     erradoA = "Não sei",
+     erradoB = "Vou perguntar pra minha mãe",
+     erradoC = "Minha mãe não sabe",
+     Categoria_Id = 7
+ },
                 new Pergunta
                 {
                     Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
@@ -369,17 +369,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 7
                 },
             #endregion
-            
+
             #region Música
-                 new Pergunta
-                 {
-                     Questao = "Qual a cor do cavalo branco de Napoleão?",
-                     Resposta = "Branco",
-                     erradoA = "Não sei",
-                     erradoB = "Vou perguntar pra minha mãe",
-                     erradoC = "Minha mãe não sabe",
-                     Categoria_Id = 8
-                 },
+ new Pergunta
+ {
+     Questao = "Qual a cor do cavalo branco de Napoleão?",
+     Resposta = "Branco",
+     erradoA = "Não sei",
+     erradoB = "Vou perguntar pra minha mãe",
+     erradoC = "Minha mãe não sabe",
+     Categoria_Id = 8
+ },
                 new Pergunta
                 {
                     Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
@@ -417,17 +417,17 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 8
                 },
             #endregion
-            
+
             #region TV
-                 new Pergunta
-                 {
-                     Questao = "Qual a cor do cavalo branco de Napoleão?",
-                     Resposta = "Branco",
-                     erradoA = "Não sei",
-                     erradoB = "Vou perguntar pra minha mãe",
-                     erradoC = "Minha mãe não sabe",
-                     Categoria_Id = 9
-                 },
+ new Pergunta
+ {
+     Questao = "Qual a cor do cavalo branco de Napoleão?",
+     Resposta = "Branco",
+     erradoA = "Não sei",
+     erradoB = "Vou perguntar pra minha mãe",
+     erradoC = "Minha mãe não sabe",
+     Categoria_Id = 9
+ },
                 new Pergunta
                 {
                     Questao = "Qual a cor predominante da bandeira de Trinidad e Tobago?",
@@ -499,6 +499,7 @@ namespace Quiz.Web.Migrations
                       NomeCategoria = "Ciência",
                       Data = new DateTime(2015, 06, 16, 00, 01, 26)
                   }
+
 
             );
         }

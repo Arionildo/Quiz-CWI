@@ -6582,3 +6582,10 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.fimJogo {
+    position:absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}

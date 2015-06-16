@@ -46,7 +46,7 @@ namespace Quiz.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Usuario_Id,pontos,Data")] Pontuacao pontuacao)
+        public ActionResult Create([Bind(Include = "Id,Usuario,pontos,Data")] Pontuacao pontuacao)
         {
             if (ModelState.IsValid)
             {
