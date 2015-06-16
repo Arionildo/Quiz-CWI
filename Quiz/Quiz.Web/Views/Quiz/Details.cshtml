@@ -21,41 +21,54 @@
 
 @section Scripts{
     <script>
-        //alert(qtdRestaurantes);
+    //alert(qtdRestaurantes);
 
-        var questao = $('.questao');
-        var sortearOrdemPergunta = {};
-        var OrdemRespostas = {};
-        var sortearOrdemRespostas = {};
-        var questaoCerta = '';
-        var questaoRespondida = '';
-        var sec = 0;
-        var totalPontos = 0;
-        var totalTempo = 0;
-        var contador = {}
-
-
+    var questao = $('.questao');
+    var sortearOrdemPergunta = {};
+    var OrdemRespostas = {};
+    var sortearOrdemRespostas = {};
+    var questaoCerta = '';
+    var questaoRespondida = '';
+    var sec = 0;
+    var totalPontos = 0;
+    var totalTempo = 0;
+    var contador = {}
 
 
-        $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
+
+
+    $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
           .done(function (response) {
 
 
               sortearOrdemPergunta = jQuery(response).get().sort(function () {
                   return Math.round(Math.random()) - 0.5
-              }).slice(0, 5);
+              }).slice(0, 10);
               remover();
           });
 
 
 
-        function remover() {
-            questaoAtual = sortearOrdemPergunta[0];
-            sortearOrdemPergunta.splice(0, 1);
-            console.log(questaoAtual);
+    function remover() {
 
-            if (questaoAtual === undefined) {
-                console.log(' Acabou');
+        //pausa o contador
+        myStopFunction();
+        questaoAtual = sortearOrdemPergunta[0];
+        sortearOrdemPergunta.splice(0, 1);
+
+
+        if (questaoAtual === undefined) {
+
+            console.log(' Acabou');
+            console.log('Pontuacao final: ' + totalPontos);
+            console.log('Tempo final: ' + totalTempo);
+            console.log('Na categoria: ' + @ViewBag.id);
+
+
+
+
+
+
             } else {
                 mostraQuestao(questaoAtual);
             }
@@ -68,58 +81,61 @@
         $(function () {
             $('.btn').click(function () {
 
-                //pausa o contador
-                myStopFunction();
+
 
                 $(function () {
                     $('.btn').css('pointer-events', 'none');
                 });
-                questaoRespondida = "#" + $(this).attr('id').replace(" ", "-");
-
-
-                //console.log('Questao Respondida: ' + questaoRespondida);
-
+                questaoRespondida = "#" + $(this).attr('id').split(/[ ,]+/).join('-');
+              
 
 
                 console.log(questaoRespondida + ' - ' + questaoCerta + '-' + sec);
 
 
+                validar(questaoRespondida);
 
-                if (questaoRespondida === questaoCerta) {
-                    var pontos = sec * 10;
 
-                    totalTempo += (15 - sec);
-                    totalPontos += pontos;
-
-                    console.log(totalTempo + ' ' + totalPontos)
-
-                    $(questaoRespondida).addClass('btn-success');
-                    console.log('Certo - ');
-                } else {
-                    console.log('Errado - ');
-
-                    $(questaoCerta).addClass('btn-success');
-
-                    $(questaoRespondida).addClass('btn-danger')
-                };
-
-                setTimeout(
-                  function () {
-                      $(function () {
-                          $('.btn').css('pointer-events', 'auto');
-                      });
-                      $(".respostas").find(".btn-success").removeClass("btn-success")
-                      $(".respostas").find(".btn-danger").removeClass("btn-danger")
-
-                      remover();
-
-                  }, 3000);
 
 
             });
         });
 
 
+        function validar(questaoRespondida) {
+            //pausa o contador
+            myStopFunction();
+
+
+            if (questaoRespondida === questaoCerta) {
+                var pontos = sec * 10;
+
+                totalTempo += (15 - sec);
+                totalPontos += pontos;
+
+                console.log('acertou')
+
+                $(questaoRespondida).addClass('btn-success');
+            } else {
+                console.log('Erroooou')
+                $(questaoCerta).addClass('btn-success');
+
+                $(questaoRespondida).addClass('btn-danger')
+            };
+
+            setTimeout(
+                 function () {
+                     $(function () {
+                         $('.btn').css('pointer-events', 'auto');
+                     });
+                     $(".respostas").find(".btn-success").removeClass("btn-success")
+                     $(".respostas").find(".btn-danger").removeClass("btn-danger")
+
+                     remover();
+
+                 }, 1500);
+
+        }
 
 
         function mostraQuestao(questaoAtual) {
@@ -130,7 +146,7 @@
             contador = setInterval(function () { myTimer() }, 1000);
 
             questao.text(questaoAtual.Questao);
-            questaoCerta = '.' + questaoAtual.Resposta;
+            questaoCerta =  questaoAtual.Resposta;
             console.log(questaoCerta);
 
 
@@ -147,25 +163,38 @@
                 return Math.round(Math.random()) - 0.5
             }).slice(0, 5);
 
-            $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].split(' ').join('-'));
-            $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].split(' ').join('-'));
-            $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].split(' ').join('-'));
-            $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].split(' ').join('-'));
+            $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].split(/[ ,]+/).join('-'));
+            $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].split(/[ ,]+/).join('-'));
+            $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].split(/[ ,]+/).join('-'));
+            $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].split(/[ ,]+/).join('-'));
 
             //resposta();
         };
 
-        //Contador regressivo
 
-        function myTimer() {
+
+        function myTimer()
+        {
             sec--;
-            if (sec == 00) { sec = 15; }
+            if (sec == 00) {
+
+                sec = 15;
+                alert('nao repondeu');
+                remover();
+
+            }
             document.getElementById("timer").innerHTML = sec
         }
 
-        function myStopFunction() {
+        function myStopFunction()
+        {
             clearInterval(contador);
         }
+
+
+
+
+
 
     </script>
 }

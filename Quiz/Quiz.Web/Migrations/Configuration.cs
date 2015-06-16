@@ -474,10 +474,32 @@ namespace Quiz.Web.Migrations
                 new Pontuacao
                 {
                     Usuario = "arionildo@escouto.com",
-                    Pontos = 910,
-                    NomeCategoria = "Filme",
+                    Pontos = 500,
+                    NomeCategoria = "Ciência",
                     Data = new DateTime(2015, 06, 15, 15, 51, 56)
-                }
+                },
+                  new Pontuacao
+                  {
+                      Usuario = "joao@hotmail.com",
+                      Pontos = 100,
+                      NomeCategoria = "Ciência",
+                      Data = new DateTime(2015, 06, 14, 12, 31, 26)
+                  },
+                  new Pontuacao
+                  {
+                      Usuario = "joao@hotmail.com",
+                      Pontos = 650,
+                      NomeCategoria = "Ciência",
+                      Data = new DateTime(2015, 06, 14, 12, 36, 26)
+                  },
+                  new Pontuacao
+                  {
+                      Usuario = "talles@hotmail.com",
+                      Pontos = 740,
+                      NomeCategoria = "Ciência",
+                      Data = new DateTime(2015, 06, 16, 00, 01, 26)
+                  }
+
             );
         }
     }

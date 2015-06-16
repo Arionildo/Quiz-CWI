@@ -16,10 +16,14 @@ namespace Quiz.Web.Controllers
         public ActionResult Index()
         {
 
+                 
+            
             return View(db.Categorias.ToList());
+
+
         }
 
-
+ 
         public ActionResult Details(int? id)
         {
             @ViewBag.id = id;
@@ -32,9 +36,9 @@ namespace Quiz.Web.Controllers
         public JsonResult Perguntas(int? id)
         {
            
-            var aa = db.Perguntas.Where(x => x.Categoria_Id == id).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
+            var retornoPerguntas = db.Perguntas.Where(x => x.Categoria_Id == id).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
 
-            return Json(aa, JsonRequestBehavior.AllowGet);
+            return Json(retornoPerguntas, JsonRequestBehavior.AllowGet);
 
           
         }
