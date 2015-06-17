@@ -5,7 +5,7 @@
 }
 
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Semanal</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">Semanal </a></li>
     <li><a data-toggle="tab" href="#menu1">Mensal</a></li>
 
 </ul>
@@ -107,3 +107,9 @@
     </div>
 
 </div>
+
+@section Scripts{
+    <script>
+        $("tr:contains('@User.Identity.Name')").css('background-color', '#C0C0C0 ');
+    </script>
+}
