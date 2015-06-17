@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
     ViewBag.id = new Categoria().GetCategoria();
+    var random = new Random().Next(40 , 100) * 10;
 }
 
 <h2>Index</h2>
@@ -47,18 +48,15 @@
 
 <script>
     var nomes = ["arthuroliveira1000", "augustosw", "bernardobrezende", "CamiCanali", "CassianoNeves", "dagneserodrigo", "eshicruz", "gabriel-moutinho", "gabsouza", "Giordanowt", "glauber-barboza", "gustavojardim", "jbcabreras", "josealencar", "juarezmonteiro", "konvborg", "LucasKauer", "nunes-andre", "PabloDiehl", "paulatomasi", "ramonkroetz", "robsonvpires", "rodrigomolinamunhoz", "vitordecastro"];
-    var dominios = ["@Html.Raw("@")" + "gmail.com", "@Html.Raw("@")" + "hotmail.com", "@Html.Raw("@")" + "outlook.com"];
+    var dominios = ["@@gmail.com", "@@hotmail.com", "@@outlook.com"];
 
     var nome = nomes[Math.floor(Math.random() * nomes.length)];
     var dominio = dominios[Math.floor(Math.random() * dominios.length)];
+    var pontos = @random;
 
 
     function usuario() {
         return nome + dominio;
-    }
-
-    function pontos() {
-        return Math.round((Math.random() * (100 - 40) + 40)) * 10;
     }
 
     function criarBot() {
@@ -68,7 +66,7 @@
             dataType: 'json',
             data: {
                 Usuario: usuario(),
-                Pontos: pontos(),
+                Pontos: pontos,
                 cat: @ViewBag.id
             },
             cache: false,

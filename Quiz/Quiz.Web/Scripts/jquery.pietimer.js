@@ -94,8 +94,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         },
         restart: function () {
             this.initial_time = new Date() - this.accrued_time;
-            this.current_value = DEFAULT_VALUE;
-            this.interval_id = setInterval($.proxy(15, this), PIE_TIMER_INTERVAL);
+           
         },
         run_timer: function () {
             if (this.canvas.getContext) {
