@@ -51,14 +51,11 @@
 
     var nome = nomes[Math.floor(Math.random() * nomes.length)];
     var dominio = dominios[Math.floor(Math.random() * dominios.length)];
+    var pontos = Math.round((Math.random() * (100 - 40) + 40)) * 10;
 
 
     function usuario() {
         return nome + dominio;
-    }
-
-    function pontos() {
-        return Math.round((Math.random() * (100 - 40) + 40)) * 10;
     }
 
     function criarBot() {
@@ -68,7 +65,7 @@
             dataType: 'json',
             data: {
                 Usuario: usuario(),
-                Pontos: pontos(),
+                Pontos: pontos,
                 cat: @ViewBag.id
             },
             cache: false,
