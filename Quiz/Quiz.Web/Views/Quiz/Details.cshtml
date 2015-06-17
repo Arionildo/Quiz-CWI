@@ -14,7 +14,14 @@
 </div>
 <span id="timer">15</span>
 <button onclick="myStopFunction()">Stop time</button>
+
+<p id="demo" style="height: 150px;"></p>
+
+
+
 @section Scripts{
+    @Scripts.Render("~/bundles/jquery.pietimer")
+
     <script>
         //alert(qtdRestaurantes);
 
@@ -29,7 +36,7 @@
         var totalTempo = 0;
         var contador = {}
 
-
+        
 
         $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
               .done(function (response) {
@@ -37,6 +44,7 @@
                   sortearOrdemPergunta = jQuery(response).get().sort(function () {
                       return Math.round(Math.random()) - 0.5
                   }).slice(0, 10);
+             
                   remover();
               });
 
@@ -45,7 +53,7 @@
 
 
         function remover() {
-
+            $('#demo').pietimer('restart');
             //pausa o contador
             myStopFunction();
             questaoAtual = sortearOrdemPergunta[0];
@@ -110,7 +118,7 @@
                   });
                   $(".respostas").find(".btn-success").removeClass("btn-success")
                   $(".respostas").find(".btn-danger").removeClass("btn-danger")
-
+               
                   remover();
 
               }, 150);
@@ -120,8 +128,9 @@
 
 
         function mostraQuestao(questaoAtual) {
-
+            $('#demo').pietimer('start');
             //reinicia o contador
+           
             sec = 16;
             myTimer();
             contador = setInterval(function () { myTimer() }, 1000);
@@ -160,6 +169,7 @@
 
                 sec = 15;
                 alert('nao repondeu');
+               
                 remover();
 
             }
@@ -199,6 +209,18 @@
                         });
                     });
                 }
+
+
+        $(function () {
+
+            $('#demo').pietimer({
+                seconds: 15,
+                color: 'rgba(0, 0, 0, 0.8)',
+                height: 100,
+                width: 100,
+                is_reversed: false
+            });
+        });
   
     </script>
 }
