@@ -388,7 +388,7 @@ namespace Quiz.Web.Migrations
                 },
                 new Pergunta
                 {
-                    Questao = "Qual o nome do irmão de Mario na série SUper Mario Bros.?",
+                    Questao = "Qual o nome do irmão de Mario na série Super Mario Bros.?",
                     Resposta = "Luigi",
                     erradoA = "Alfredo",
                     erradoB = "Lorenzo",
