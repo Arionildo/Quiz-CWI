@@ -284,11 +284,9 @@
     <Content Include="Views\Quiz\Perguntas.cshtml" />
     <Content Include="Views\Quiz\Details.cshtml" />
     <Content Include="Views\Pontuacaos\Index.cshtml" />
-    <Content Include="Views\Quiz\FimDeJogo.cshtml" />
     <Content Include="Views\Erros\Erro404.cshtml" />
     <Content Include="Views\Ranking\CategoiraRank.cshtml" />
     <Content Include="Views\Ranking\Index.cshtml" />
-    <Content Include="Views\Quiz\Pontuacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
