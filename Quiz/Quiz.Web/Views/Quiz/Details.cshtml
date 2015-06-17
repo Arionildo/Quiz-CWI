@@ -79,7 +79,7 @@
                 $(function () {
                     $('.btn').css('pointer-events', 'none');
                 });
-                questaoRespondida = "#" + $(this).attr('id').split(/[ ,]+/).join('-');
+                questaoRespondida = "#" + $(this).attr('id').split(/[ ,:;]+/).join('-');
 
                 validar(questaoRespondida);
 
@@ -143,7 +143,7 @@
 
             questao.text(questaoAtual.Questao);
 
-            questaoCerta = '#' + questaoAtual.Resposta.split(/[ ,.]+/).join('-');
+            questaoCerta = '#' + questaoAtual.Resposta.split(/[ ,.:;]+/).join('-');
             //console.log('Respora certa: ' + questaoAtual.Resposta);
 
             ordemRespostas = [questaoAtual.Resposta, questaoAtual.erradoA, questaoAtual.erradoB, questaoAtual.erradoC];
@@ -154,10 +154,10 @@
                 return Math.round(Math.random()) - 0.5
             }).slice(0, 5);
 
-            $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].split(/[ ,.]+/).join('-'));
-            $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].split(/[ ,.]+/).join('-'));
-            $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].split(/[ ,.]+/).join('-'));
-            $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].split(/[ ,.]+/).join('-'));
+            $('.btn1  ').text(sortearOrdemRespostas[0]).attr('id', sortearOrdemRespostas[0].split(/[ ,.:;]+/).join('-'));
+            $('.btn2  ').text(sortearOrdemRespostas[1]).attr('id', sortearOrdemRespostas[1].split(/[ ,.:;]+/).join('-'));
+            $('.btn3  ').text(sortearOrdemRespostas[2]).attr('id', sortearOrdemRespostas[2].split(/[ ,.:;]+/).join('-'));
+            $('.btn4  ').text(sortearOrdemRespostas[3]).attr('id', sortearOrdemRespostas[3].split(/[ ,.:;]+/).join('-'));
 
 
         };

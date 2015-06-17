@@ -5,8 +5,9 @@
 
 <h2>Escolha uma Categoria</h2>
 
+    @foreach (var item in Model)
+    {
+        @Html.ActionLink(@item.Nome, "Details", new { id = item.Id }, new { @class = "btn btn-default meujumbotron" })
+    }
 
-@foreach (var item in Model)
-{
-    @Html.ActionLink(@item.Nome, "Details", new { id = item.Id }, new { @class = "btn btn-default" })
-}
+

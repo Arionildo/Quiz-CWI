@@ -40,7 +40,7 @@ namespace Quiz.Web
         {
             var lista = db.Categorias.Select(x => x.Id).ToList();
             var rnd = new Random();
-            var categoria = lista[rnd.Next(1, lista.Count)];
+            var categoria = lista[rnd.Next(0, lista.Count)];
 
             return categoria;
         }
