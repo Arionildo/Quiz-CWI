@@ -197,5 +197,4 @@ FakesAssemblies/
 *.rej
 *.resx
 
-Quiz/Quiz.Web/Migrations/*CreateDataBase*
 Quiz/Quiz.Web/Migrations/*banco*
