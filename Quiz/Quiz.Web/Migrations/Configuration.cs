@@ -649,40 +649,42 @@ namespace Quiz.Web.Migrations
             );
 
 
-            context.Pontuacaos.AddOrUpdate(
-                p => p.Usuario,
-                new Pontuacao
-                {
-                    Usuario = "arionildo@escouto.com",
-                    Pontos = 500,
-                    NomeCategoria = "Ciência",
-                    Data = new DateTime(2015, 06, 15, 15, 51, 56)
-                },
-                  new Pontuacao
-                  {
-                      Usuario = "joao@hotmail.com",
-                      Pontos = 100,
-                      NomeCategoria = "Ciência",
-                      Data = new DateTime(2015, 06, 14, 12, 31, 26)
-                  },
-                  new Pontuacao
-                  {
-                      Usuario = "joao@hotmail.com",
-                      Pontos = 650,
-                      NomeCategoria = "Ciência",
-                      Data = new DateTime(2015, 06, 12, 12, 36, 26)
-                  },
-                  new Pontuacao
-                  {
-                      Usuario = "talles@hotmail.com",
-                      Pontos = 740,
-                      NomeCategoria = "Ciência",
-                      Data = new DateTime(2015, 06, 16, 00, 01, 26)
+            //DELETAR LINHAS DE CRIAÇÃO DE PONTUAÇÃO E UTILIZAR O GERADOR DE PONTUAÇÃO NO /PONTUAÇÃO
+            //
+            //context.Pontuacaos.AddOrUpdate(
+            //    p => p.Usuario,
+            //    new Pontuacao
+            //    {
+            //        Usuario = "arionildo@escouto.com",
+            //        Pontos = 500,
+            //        NomeCategoria = "Ciência",
+            //        Data = new DateTime(2015, 06, 15, 15, 51, 56)
+            //    },
+            //      new Pontuacao
+            //      {
+            //          Usuario = "joao@hotmail.com",
+            //          Pontos = 100,
+            //          NomeCategoria = "Ciência",
+            //          Data = new DateTime(2015, 06, 14, 12, 31, 26)
+            //      },
+            //      new Pontuacao
+            //      {
+            //          Usuario = "joao@hotmail.com",
+            //          Pontos = 650,
+            //          NomeCategoria = "Ciência",
+            //          Data = new DateTime(2015, 06, 12, 12, 36, 26)
+            //      },
+            //      new Pontuacao
+            //      {
+            //          Usuario = "talles@hotmail.com",
+            //          Pontos = 740,
+            //          NomeCategoria = "Ciência",
+            //          Data = new DateTime(2015, 06, 16, 00, 01, 26)
                    
-                  }
+            //      }
 
 
-            );
+            //);
         }
     }
 }
