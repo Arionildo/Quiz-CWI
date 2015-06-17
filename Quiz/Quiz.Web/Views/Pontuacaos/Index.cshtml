@@ -2,9 +2,12 @@
 
 @{
     ViewBag.Title = "Index";
+    ViewBag.id = new Categoria().GetCategoria();
 }
 
 <h2>Index</h2>
+
+<a href="#" onclick="criarBot()">Gerar pontuação aleatória</a>
 
 <table class="table">
     <tr>
@@ -41,3 +44,36 @@
 }
 
 </table>
+
+<script>
+    var nomes = ["arthuroliveira1000", "augustosw", "bernardobrezende", "CamiCanali", "CassianoNeves", "dagneserodrigo", "eshicruz", "gabriel-moutinho", "gabsouza", "Giordanowt", "glauber-barboza", "gustavojardim", "jbcabreras", "josealencar", "juarezmonteiro", "konvborg", "LucasKauer", "nunes-andre", "PabloDiehl", "paulatomasi", "ramonkroetz", "robsonvpires", "rodrigomolinamunhoz", "vitordecastro"];
+    var dominios = ["@Html.Raw("@")" + "gmail.com", "@Html.Raw("@")" + "hotmail.com", "@Html.Raw("@")" + "outlook.com"];
+
+    var nome = nomes[Math.floor(Math.random() * nomes.length)];
+    var dominio = dominios[Math.floor(Math.random() * dominios.length)];
+
+
+    function usuario() {
+        return nome + dominio;
+    }
+
+    function pontos() {
+        return Math.round((Math.random() * (100 - 40) + 40)) * 10;
+    }
+
+    function criarBot() {
+        $.ajax({
+            url: "@Url.Action("Pontuacao", "Quiz")",
+            type: "POST",
+            dataType: 'json',
+            data: {
+                Usuario: usuario(),
+                Pontos: pontos(),
+                cat: @ViewBag.id
+            },
+            cache: false,
+        }).done(function () {
+            window.location.href = "/Pontuacaos"
+        });
+    }
+</script>
