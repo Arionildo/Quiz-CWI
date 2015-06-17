@@ -172,23 +172,7 @@
         }
 
 
-        function salvar() {
-            $.ajax({
-                url: "@Url.Action("Pontuacao", "Quiz")",
-                type: "POST",
-                dataType: 'json',
-                data: {
-                    Usuario: "@User.Identity.Name",
-                    cat: @ViewBag.id,
-                    Pontos: totalPontos
-                },
-
-                cache: false
-            }).done(function(resultado){
-                $(".navbar").after(function()
-                {
-                    clearInterval(contador);
-                }
+     
 
 
                 function salvar() {
@@ -215,7 +199,6 @@
                         });
                     });
                 }
-            })
-        }
+  
     </script>
 }
