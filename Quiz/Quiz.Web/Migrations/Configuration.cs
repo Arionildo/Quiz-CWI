@@ -670,7 +670,7 @@ namespace Quiz.Web.Migrations
                       Usuario = "joao@hotmail.com",
                       Pontos = 650,
                       NomeCategoria = "Ciência",
-                      Data = new DateTime(2015, 06, 14, 12, 36, 26)
+                      Data = new DateTime(2015, 06, 12, 12, 36, 26)
                   },
                   new Pontuacao
                   {
@@ -678,6 +678,7 @@ namespace Quiz.Web.Migrations
                       Pontos = 740,
                       NomeCategoria = "Ciência",
                       Data = new DateTime(2015, 06, 16, 00, 01, 26)
+                   
                   }
 
 
