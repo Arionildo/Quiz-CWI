@@ -194,25 +194,8 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
-Quiz/Quiz.Web/Migrations/201506131824551_CreateDataBase.cs
-Quiz/Quiz.Web/Migrations/201506142131034_CreateDataBase.cs
-Quiz/Quiz.Web/Migrations/201506142131034_CreateDataBase.Designer.cs
-Quiz/Quiz.Web/Migrations/201506142131034_CreateDataBase.resx
 *.rej
 *.resx
-Quiz/Quiz.Web/Migrations/201506141909428_CreateDataBase.Designer.cs
-Quiz/Quiz.Web/Migrations/201506141909428_CreateDataBase.cs
-Quiz/Quiz.Web/Migrations/201506142355498_CreateDataBase.Designer.cs
-Quiz/Quiz.Web/Migrations/201506142355498_CreateDataBase.cs
-*.csproj
-Quiz/Quiz.Web/Migrations/201506150224210_banco.Designer.cs
-Quiz/Quiz.Web/Migrations/201506150224210_banco.cs
-Quiz/Quiz.Web/Migrations/201506150158152_CreateDataBase.Designer.cs
-Quiz/Quiz.Web/Migrations/201506150158152_CreateDataBase.cs
-Quiz/Quiz.Web/Migrations/201506151854163_CreateDataBase.Designer.cs
-Quiz/Quiz.Web/Migrations/201506151854163_CreateDataBase.cs
+
 Quiz/Quiz.Web/Migrations/*CreateDataBase*
-Quiz/Quiz.Web/Migrations/201506152036583_banco.Designer.cs
-Quiz/Quiz.Web/Migrations/201506152036583_banco.cs
-Quiz/Quiz.Web/Migrations/201506161644547_banco.cs
-Quiz/Quiz.Web/Migrations/201506161644547_banco.Designer.cs
+Quiz/Quiz.Web/Migrations/*banco*
