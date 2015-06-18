@@ -76,10 +76,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     PieTimer.prototype = {
         start: function () {
             if (this.is_paused) {
-							this.initial_time = new Date()  - this.accrued_time;
-                if (this.current_value <= 0) {
+                //ATRIBUIA O TEMPO RESTANTE/ATUAL COMO TEMPO INICIAL, AGORA ATRIBUI O TEMPO PRÉ-DEFINDO
+                this.initial_time = new Date();
+                //VERIFICAVA SE O GRAU ATUAL DO CÍRCULO ERA ZERO PARA PODER VOLTAR AOS 360 GRAUS(INÍCIO DA CONTAGEM)
+                //if (this.current_value <= 0) {
                     this.current_value = DEFAULT_VALUE;
-                }
+                //}
                 this.interval_id = setInterval($.proxy(this.run_timer, this), PIE_TIMER_INTERVAL);
                 this.is_paused = false;
             }

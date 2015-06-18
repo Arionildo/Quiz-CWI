@@ -14,8 +14,8 @@ namespace Quiz.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jquery.pietimer.min").Include(
-                        "~/Scripts/jquery.pietimer.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquery.pietimer").Include(
+                        "~/Scripts/jquery.pietimer.js"));
                     
 
 
