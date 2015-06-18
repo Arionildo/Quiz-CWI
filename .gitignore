@@ -197,3 +197,6 @@ FakesAssemblies/
 *.rej
 
 Quiz/Quiz.Web/Migrations/*banco*
+Quiz/Quiz.Web/Migrations/201506171638024_CreateDataBase.Designer.cs
+Quiz/Quiz.Web/Migrations/201506171638024_CreateDataBase.cs
+Quiz/Quiz.Web/Migrations/201506171638024_CreateDataBase.resx

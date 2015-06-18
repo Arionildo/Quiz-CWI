@@ -15,7 +15,7 @@ namespace Quiz.Web
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery.pietimer").Include(
-                        "~/Scripts/jquery.pietimer.min.js"));
+                        "~/Scripts/jquery.pietimer.js"));
                     
 
 
@@ -24,6 +24,9 @@ namespace Quiz.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/style").Include(
+                        "~/Scripts/style.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
@@ -31,6 +34,8 @@ namespace Quiz.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
