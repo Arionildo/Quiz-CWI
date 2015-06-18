@@ -198,7 +198,7 @@
             }).done(function(resultado){
                 $(".navbar").after(function()
                 {
-                    return "<div class='fimJogo btn-lg btn-danger'>Fim de Jogo!<br>"
+                    return "<div class='fimJogo btn-danger'>Fim de Jogo!<br>"
                     +"Jogador: "+resultado.u+"<br>"
                     +"Categoria: "+resultado.c+"<br>"
                     +"Pontuação Final: "+resultado.p+"</div>";
@@ -225,10 +225,11 @@
                     }).done(function(resultado){
                         $(".navbar").after(function()
                         {
-                            return "<div class='fimJogo btn-lg btn-danger'>Fim de Jogo!<br>"
-                            +"Jogador: "+resultado.u+"<br>"
-                            +"Categoria: "+resultado.c+"<br>"
-                            +"Pontuação Final: "+resultado.p+"</div>";
+                            return "<div class='fimJogo'><div class='interiorFimJogo'><p>Fim de Jogo!</p>"
+                            +"<p>Jogador: "+resultado.u+"</p>"
+                            +"<p>Categoria: "+resultado.c+"</p>"
+                            +"<p>Pontuação Final: "+resultado.p+"</p>"
+                            +"<p>Clique aqui para voltar</p></div></div>";
                         });
                         $(".fimJogo").on("click", function() {
                             window.location.href = "/Quiz";

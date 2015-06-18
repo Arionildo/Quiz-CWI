@@ -187,9 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506161859137_CreateDataBase.cs" />
-    <Compile Include="Migrations\201506161859137_CreateDataBase.Designer.cs">
-      <DependentUpon>201506161859137_CreateDataBase.cs</DependentUpon>
+    <Compile Include="Migrations\201506170258457_CreateDataBase.cs" />
+    <Compile Include="Migrations\201506170258457_CreateDataBase.Designer.cs">
+      <DependentUpon>201506170258457_CreateDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -301,8 +301,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506161859137_CreateDataBase.resx">
-      <DependentUpon>201506161859137_CreateDataBase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506170258457_CreateDataBase.resx">
+      <DependentUpon>201506170258457_CreateDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
