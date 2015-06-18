@@ -1,21 +1,21 @@
 ﻿@{
     ViewBag.Title = "Quiz";
 }
-<h2>
+
+<p id="demo" style="height: 150px;text-align: center;vertical-align: middle;"></p>
+<h2 style="text-align: center;vertical-align: middle;">
     1/10
-
 </h2>
-
 <h1 class="questao"></h1>
 <div class="respostas">
     <p><a class="btn btn1 btn-primary btn-lg"></a></p>
     <p><a class="btn btn2 btn-primary btn-lg"></a></p>
     <p><a class="btn btn3 btn-primary btn-lg"></a></p>
     <p><a class="btn btn4 btn-primary btn-lg"></a></p>
+
 </div>
 @*<button onclick="myStopFunction()">Stop time</button>*@
 
-<p id="demo" style="height: 150px;text-align: center;vertical-align: middle;"></p>
 
 
 
@@ -41,7 +41,7 @@
 
     $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id, dificuldade = @ViewBag.dificuldade })')
               .done(function (response) {
-
+               
                    if( @ViewBag.dificuldade ==3){
                       valorDifi=20;
                       pieTempo=10;
@@ -62,6 +62,7 @@
 
 
         function remover() {
+            opcoes();
             numQuestao++;
             if(numQuestao >=11){
                 numQuestao=10;
@@ -117,7 +118,7 @@
                   $('.btn').css('pointer-events', 'auto');
                   $(".respostas").find(".btn-success").removeClass("btn-success")
                   $(".respostas").find(".btn-danger").removeClass("btn-danger")
-
+                
                   remover();
 
               }, 1000);
@@ -162,6 +163,7 @@
 
         function myTimer()
         {
+
             sec--;
             if (sec == 00) {
 
@@ -190,6 +192,7 @@
                 },
                 cache: false
             }).done(function(resultado){
+                $('.btn').css('pointer-events', 'none');
                 $(".navbar").after(function()
                 {
                     return "<div class='fimJogo'><div class='interiorFimJogo'><p>Fim de Jogo!</p>"
