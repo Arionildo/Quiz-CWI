@@ -94,10 +94,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 this.is_paused = true;
             }
         },
-        //restart: function () {
-        //    this.initial_time = new Date() - this.accrued_time;
+        restart: function () {
+            this.initial_time = new Date() - this.accrued_time;
            
-        //},
+        },
         run_timer: function () {
             if (this.canvas.getContext) {
 
