@@ -119,7 +119,7 @@
                   });
                   $(".respostas").find(".btn-success").removeClass("btn-success")
                   $(".respostas").find(".btn-danger").removeClass("btn-danger")
-               
+                  $('#demo').pietimer('start');
                   remover();
 
               }, 1000);
@@ -129,7 +129,7 @@
 
 
         function mostraQuestao(questaoAtual) {
-           // $('#demo').pietimer('start');
+            $('#demo').pietimer('start');
             //reinicia o contador
            
             sec = 16;
@@ -236,16 +236,16 @@
                 }
 
 
-        //$(function () {
+        $(function () {
 
-        //    $('#demo').pietimer({
-        //        seconds: 15,
-        //        color: 'rgba(0, 0, 0, 0.8)',
-        //        height: 100,
-        //        width: 100,
-        //        is_reversed: false
-        //    });
-        //});
+            $('#demo').pietimer({
+                seconds: 15,
+                color: 'rgba(0, 0, 0, 0.8)',
+                height: 100,
+                width: 100,
+                is_reversed: false
+            });
+        });
   
     </script>
 }
