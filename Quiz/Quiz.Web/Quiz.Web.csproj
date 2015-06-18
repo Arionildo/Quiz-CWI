@@ -187,9 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506161859137_CreateDataBase.cs" />
-    <Compile Include="Migrations\201506161859137_CreateDataBase.Designer.cs">
-      <DependentUpon>201506161859137_CreateDataBase.cs</DependentUpon>
+    <Compile Include="Migrations\201506170258457_CreateDataBase.cs" />
+    <Compile Include="Migrations\201506170258457_CreateDataBase.Designer.cs">
+      <DependentUpon>201506170258457_CreateDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -207,6 +207,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ionicons.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -298,8 +299,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506161859137_CreateDataBase.resx">
-      <DependentUpon>201506161859137_CreateDataBase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506170258457_CreateDataBase.resx">
+      <DependentUpon>201506170258457_CreateDataBase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
