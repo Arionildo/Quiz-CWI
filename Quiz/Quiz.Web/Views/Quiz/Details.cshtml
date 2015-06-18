@@ -20,7 +20,7 @@
 
 
 @section Scripts{
-    @Scripts.Render("~/bundles/jquery.pietimer")
+    @Scripts.Render("~/bundles/jquery.pietimer.min")
 
 
     <script>
@@ -119,7 +119,7 @@
                   });
                   $(".respostas").find(".btn-success").removeClass("btn-success")
                   $(".respostas").find(".btn-danger").removeClass("btn-danger")
-                  $('#demo').pietimer('start');
+             
                   remover();
 
               }, 1000);
@@ -130,6 +130,7 @@
 
         function mostraQuestao(questaoAtual) {
             $('#demo').pietimer('start');
+            $('#demo').pietimer('restart');
             //reinicia o contador
            
             sec = 16;
