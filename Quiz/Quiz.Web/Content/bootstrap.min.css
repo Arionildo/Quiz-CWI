@@ -3467,8 +3467,8 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
 
 .btn-primary {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    background-color: #d35400;
+    border-color: #C24D00;
 }
 
     .btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
@@ -3624,9 +3624,16 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
 
 .btn-group-lg > .btn, .btn-lg {
     padding: 10px 16px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 6px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 8px;
+  width: 49%;
+  height: 86px;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  float: left;
+  vertical-align: middle;
+  line-height: 65px;
 }
 
 .btn-group-sm > .btn, .btn-sm {
@@ -4866,7 +4873,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 
     .navbar-inverse .navbar-brand {
       color: #fff;
-;
+
     }
 
         .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
@@ -5244,7 +5251,7 @@ a.badge:focus, a.badge:hover {
     padding: 30px 15px;
     margin-bottom: 30px;
     color: inherit;
-  background-color: rgba(238, 238, 238, 0.960);;
+  background-color: rgba(238, 238, 238, 0.960);
 }
 
     .jumbotron .h1, .jumbotron h1 {

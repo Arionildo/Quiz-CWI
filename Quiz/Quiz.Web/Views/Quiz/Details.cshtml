@@ -2,7 +2,7 @@
     ViewBag.Title = "Details";
 }
 <h2>
-    Details
+    1/10
 </h2>
 
 <h1 class="questao"></h1>
@@ -15,7 +15,7 @@
 <span id="timer">15</span>
 <button onclick="myStopFunction()">Stop time</button>
 
-<p id="demo" style="height: 150px;"></p>
+<p id="demo" style="height: 150px;text-align: center;vertical-align: middle;"></p>
 
 
 
@@ -26,6 +26,7 @@
     <script>
         //alert(qtdRestaurantes);
 
+        var numQuestao=0;
         var questao = $('.questao');
         var sortearOrdemPergunta = {};
         var OrdemRespostas = {};
@@ -54,6 +55,8 @@
 
 
         function remover() {
+            numQuestao++;
+            $('h2').text(numQuestao+'/10')
             //$('#demo').pietimer('restart');
             //pausa o contador
             myStopFunction();
