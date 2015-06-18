@@ -13,7 +13,6 @@
     <p><a class="btn btn3 btn-primary btn-lg"></a></p>
     <p><a class="btn btn4 btn-primary btn-lg"></a></p>
 </div>
-<span id="timer">15</span>
 @*<button onclick="myStopFunction()">Stop time</button>*@
 
 <p id="demo" style="height: 150px;text-align: center;vertical-align: middle;"></p>
@@ -35,24 +34,37 @@
         var questaoRespondida = '';
         var sec = 0;
         var totalPontos = 0;
-        var totalTempo = 0;
         var contador = {}
+        var pieTempo= 15;
+        var valorDifi= 10;
 
 
-        $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
-              .done(function (response) {
+        $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id, dificuldade = @ViewBag.dificuldade })')
+                  .done(function (response) {
 
-                  sortearOrdemPergunta = jQuery(response).get().sort(function () {
-                      return Math.round(Math.random()) - 0.5
-                  }).slice(0, 10);
+                      if( @ViewBag.dificuldade ==3){
+                          valorDifi=15;
+                          pieTempo=10;
+                      }
+                      if( @ViewBag.dificuldade ==1){
+                          valorDifi=5;
+                          pieTempo=20;
+                      }
 
-                  opcoes();
-                  remover();
-              });
+                      sortearOrdemPergunta = jQuery(response).get().sort(function () {
+                          return Math.round(Math.random()) - 0.5
+                      }).slice(0, 10);
+
+                      opcoes();
+                      remover();
+                  });
 
 
         function remover() {
             numQuestao++;
+            if(numQuestao >=11){
+                numQuestao=10;
+            }
             $('h2').text(numQuestao+'/10')
 
             myStopFunction();
@@ -72,7 +84,7 @@
             myStopFunction();
 
             $(function () {
-                
+
             });
 
             questaoRespondida = "#" + $(this).attr('id').split(/[ ,:;]+/).join('-');
@@ -86,9 +98,8 @@
 
 
             if (questaoRespondida === questaoCerta) {
-                var pontos = sec * 10;
+                var pontos = sec * valorDifi;
 
-                totalTempo += (15 - sec);
                 totalPontos += pontos;
 
 
@@ -105,7 +116,7 @@
                   $('.btn').css('pointer-events', 'auto');
                   $(".respostas").find(".btn-success").removeClass("btn-success")
                   $(".respostas").find(".btn-danger").removeClass("btn-danger")
-             
+
                   remover();
 
               }, 1000);
@@ -116,8 +127,8 @@
             $('#demo').pietimer('start');
             $('#demo').pietimer('restart');
             //reinicia o contador
-           
-            sec = 16;
+
+            sec = pieTempo+1;
             myTimer();
             contador = setInterval(function () { myTimer() }, 1000);
 
@@ -153,13 +164,12 @@
             sec--;
             if (sec == 00) {
 
-                sec = 15;
+                sec = pieTempo;
                 alert('nao repondeu');
-               
+
                 remover();
 
             }
-            document.getElementById("timer").innerHTML = sec
         }
 
         function myStopFunction()
@@ -195,13 +205,13 @@
 
         function opcoes() {
             $('#demo').pietimer({
-                seconds: 15,
+                seconds: pieTempo,
                 color: 'rgba(0, 0, 0, 0.8)',
                 height: 100,
                 width: 100,
                 is_reversed: false
             });
         }
-  
+
     </script>
 }
