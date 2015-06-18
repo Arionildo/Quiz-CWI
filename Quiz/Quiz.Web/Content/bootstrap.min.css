@@ -1376,7 +1376,7 @@ button, input, select, textarea {
 }
 
 a {
-    color: #337ab7;
+    color: #000;
     text-decoration: none;
 }
 
@@ -2740,12 +2740,12 @@ th {
         padding: 8px;
         line-height: 1.42857143;
         vertical-align: top;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid #d35400;
     }
 
     .table > thead > tr > th {
         vertical-align: bottom;
-        border-bottom: 2px solid #ddd;
+        border-bottom: 2px solid #d35400;
     }
 
     .table > caption + thead > tr:first-child > td, .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > td, .table > thead:first-child > tr:first-child > th {
@@ -3447,7 +3447,7 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
 
     .btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open > .dropdown-toggle.btn-default {
         color: #333;
-        background-color: #e6e6e6;
+        background-color: #d35400;
         border-color: #adadad;
     }
 
@@ -4219,7 +4219,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
     }
 
 .nav-tabs {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #F59F3D;
 }
 
     .nav-tabs > li {
@@ -4238,10 +4238,10 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
                 border-color: #eee #eee #ddd;
             }
 
-        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
-            color: #555;
+        .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            color: #000;
             cursor: default;
-            background-color: #fff;
+            background-color: #F59F3D;
             border: 1px solid #ddd;
             border-bottom-color: transparent;
         }
