@@ -388,7 +388,7 @@ namespace Quiz.Web.Migrations
                 },
                 new Pergunta
                 {
-                    Questao = "Qual o nome do irmão de Mario na série SUper Mario Bros.?",
+                    Questao = "Qual o nome do irmão de Mario na série Super Mario Bros.?",
                     Resposta = "Luigi",
                     erradoA = "Alfredo",
                     erradoB = "Lorenzo",
@@ -645,41 +645,6 @@ namespace Quiz.Web.Migrations
                     Categoria_Id = 9
                 }
             #endregion
-
-            );
-
-
-            context.Pontuacaos.AddOrUpdate(
-                p => p.Usuario,
-                new Pontuacao
-                {
-                    Usuario = "arionildo@escouto.com",
-                    Pontos = 500,
-                    NomeCategoria = "Ciência",
-                    Data = new DateTime(2015, 06, 15, 15, 51, 56)
-                },
-                  new Pontuacao
-                  {
-                      Usuario = "joao@hotmail.com",
-                      Pontos = 100,
-                      NomeCategoria = "Ciência",
-                      Data = new DateTime(2015, 06, 14, 12, 31, 26)
-                  },
-                  new Pontuacao
-                  {
-                      Usuario = "joao@hotmail.com",
-                      Pontos = 650,
-                      NomeCategoria = "Ciência",
-                      Data = new DateTime(2015, 06, 14, 12, 36, 26)
-                  },
-                  new Pontuacao
-                  {
-                      Usuario = "talles@hotmail.com",
-                      Pontos = 740,
-                      NomeCategoria = "Ciência",
-                      Data = new DateTime(2015, 06, 16, 00, 01, 26)
-                  }
-
 
             );
         }

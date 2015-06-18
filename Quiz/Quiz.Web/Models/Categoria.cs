@@ -1,5 +1,6 @@
 ﻿
 using Quiz.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -33,6 +34,15 @@ namespace Quiz.Web
         public string GetNomeCategoria(int id)
         {
             return db.Categorias.Where(x => x.Id == id).Select(y => y.Nome).First();
+        }
+
+        public int GetCategoria()
+        {
+            var lista = db.Categorias.Select(x => x.Id).ToList();
+            var rnd = new Random();
+            var categoria = lista[rnd.Next(0, lista.Count)];
+
+            return categoria;
         }
     }
 }

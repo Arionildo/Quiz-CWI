@@ -17,9 +17,8 @@ namespace Quiz.Web.Controllers
             return View(db.Categorias.ToList());
         }
 
-
+        [Authorize]
         public ActionResult Index(int id)
-        
         {
 
             var myDate = DateTime.Today.AddDays(1);
@@ -29,8 +28,8 @@ namespace Quiz.Web.Controllers
     
 
             
-           var  rankSemana = db.Pontuacaos.Where(x => x.Pontos == (db.Pontuacaos.Where(a => a.Usuario == x.Usuario && a.Categoria.Id == id && a.Data <= myDate && a.Data >= week).Select(a => new { a.Pontos }).OrderByDescending(c => c.Pontos).FirstOrDefault()).Pontos).OrderByDescending(x => x.Pontos);
-           var rankMes = db.Pontuacaos.Where(x => x.Pontos == (db.Pontuacaos.Where(a => a.Usuario == x.Usuario && a.Categoria.Id == id && a.Data <= myDate && a.Data >= week).Select(a => new { a.Pontos }).OrderByDescending(c => c.Pontos).FirstOrDefault()).Pontos).OrderByDescending(x => x.Pontos);
+           var  rankSemana = db.Pontuacaos.Where(x => x.Pontos == (db.Pontuacaos.Where(a => a.Usuario == x.Usuario && a.Categoria.Id == id && a.Data <= myDate && a.Data >= week).Select(a => new { a.Pontos }).OrderByDescending(c => c.Pontos).FirstOrDefault()).Pontos && x.Categoria.Id == id).OrderByDescending(x => x.Pontos);
+           var rankMes = db.Pontuacaos.Where(x => x.Pontos == (db.Pontuacaos.Where(a => a.Usuario == x.Usuario && a.Categoria.Id == id && a.Data <= myDate && a.Data >= Mounth).Select(a => new { a.Pontos }).OrderByDescending(c => c.Pontos).FirstOrDefault()).Pontos && x.Categoria.Id == id).OrderByDescending(x => x.Pontos);
 
 
            var model = new Dictionary<String, IEnumerable<Pontuacao>>();
