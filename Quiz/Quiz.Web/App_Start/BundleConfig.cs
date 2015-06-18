@@ -35,7 +35,11 @@ namespace Quiz.Web
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+#if DEBUG
             BundleTable.EnableOptimizations = false;
+#else
+            BundleTable.EnableOptimizations = true;
+#endif
         }
     }
 }
