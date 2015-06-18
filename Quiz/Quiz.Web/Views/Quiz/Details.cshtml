@@ -13,7 +13,6 @@
     <p><a class="btn btn3 btn-primary btn-lg"></a></p>
     <p><a class="btn btn4 btn-primary btn-lg"></a></p>
 </div>
-<span id="timer">15</span>
 @*<button onclick="myStopFunction()">Stop time</button>*@
 
 <p id="demo" style="height: 150px;text-align: center;vertical-align: middle;"></p>
@@ -25,23 +24,33 @@
 
 
     <script>
-        //alert(qtdRestaurantes);
+    //alert(qtdRestaurantes);
 
-        var numQuestao=0;
-        var questao = $('.questao');
-        var sortearOrdemPergunta = {};
-        var OrdemRespostas = {};
-        var sortearOrdemRespostas = {};
-        var questaoCerta = '';
-        var questaoRespondida = '';
-        var sec = 0;
-        var totalPontos = 0;
-        var totalTempo = 0;
-        var contador = {}
+    var numQuestao=0;
+    var questao = $('.questao');
+    var sortearOrdemPergunta = {};
+    var OrdemRespostas = {};
+    var sortearOrdemRespostas = {};
+    var questaoCerta = '';
+    var questaoRespondida = '';
+    var sec = 0;
+    var totalPontos = 0;
+    var contador = {}
+    var pieTempo= 15;
+    var valorDifi= 10;
 
 
-        $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id })')
+    $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id, dificuldade = @ViewBag.dificuldade })')
               .done(function (response) {
+
+                   if( @ViewBag.dificuldade ==3){
+                      valorDifi=15;
+                      pieTempo=10;
+                  }               
+                  if( @ViewBag.dificuldade ==1){
+                      valorDifi=5;
+                      pieTempo=20;
+                  }
 
                   sortearOrdemPergunta = jQuery(response).get().sort(function () {
                       return Math.round(Math.random()) - 0.5
@@ -54,6 +63,9 @@
 
         function remover() {
             numQuestao++;
+            if(numQuestao >=11){
+                numQuestao=10;
+            }
             $('h2').text(numQuestao+'/10')
 
             myStopFunction();
@@ -87,9 +99,8 @@
 
 
             if (questaoRespondida === questaoCerta) {
-                var pontos = sec * 10;
+                var pontos = sec * valorDifi;
 
-                totalTempo += (15 - sec);
                 totalPontos += pontos;
 
 
@@ -108,7 +119,7 @@
                   });
                   $(".respostas").find(".btn-success").removeClass("btn-success")
                   $(".respostas").find(".btn-danger").removeClass("btn-danger")
-             
+
                   remover();
 
               }, 1000);
@@ -119,8 +130,8 @@
             $('#demo').pietimer('start');
             //$('#demo').pietimer('restart');
             //reinicia o contador
-           
-            sec = 16;
+
+            sec = pieTempo+1;
             myTimer();
             contador = setInterval(function () { myTimer() }, 1000);
 
@@ -156,13 +167,12 @@
             sec--;
             if (sec == 00) {
 
-                sec = 15;
+                sec = pieTempo;
                 alert('nao repondeu');
-               
+
                 remover();
 
             }
-            document.getElementById("timer").innerHTML = sec
         }
 
         function myStopFunction()
@@ -173,38 +183,38 @@
         function salvar() {
             $.ajax({
                 url: "@Url.Action("Pontuacao", "Quiz")",
-                type: "POST",
-                dataType: 'json',
-                data: {
-                    Usuario: "@User.Identity.Name",
-                    cat: @ViewBag.id,
-                    Pontos: totalPontos
-                },
-                cache: false
-            }).done(function(resultado){
-                $(".navbar").after(function()
-                {
-                    return "<div class='fimJogo'><div class='interiorFimJogo'><p>Fim de Jogo!</p>"
-                    +"<p>Jogador: "+resultado.u+"</p>"
-                    +"<p>Categoria: "+resultado.c+"</p>"
-                    +"<p>Pontuação Final: "+resultado.p+"</p>"
-                    +"<p>Clique aqui para voltar</p></div></div>";
-                });
-                $(".fimJogo").on("click", function() {
-                    window.location.href = "/Quiz";
-                });
+            type: "POST",
+            dataType: 'json',
+            data: {
+                Usuario: "@User.Identity.Name",
+                cat: @ViewBag.id,
+                Pontos: totalPontos
+            },
+            cache: false
+        }).done(function(resultado){
+            $(".navbar").after(function()
+            {
+                return "<div class='fimJogo'><div class='interiorFimJogo'><p>Fim de Jogo!</p>"
+                +"<p>Jogador: "+resultado.u+"</p>"
+                +"<p>Categoria: "+resultado.c+"</p>"
+                +"<p>Pontuação Final: "+resultado.p+"</p>"
+                +"<p>Clique aqui para voltar</p></div></div>";
             });
-        }
+            $(".fimJogo").on("click", function() {
+                window.location.href = "/Quiz";
+            });
+        });
+    }
 
-        function opcoes() {
-            $('#demo').pietimer({
-                seconds: 15,
-                color: 'rgba(0, 0, 0, 0.8)',
-                height: 100,
-                width: 100,
-                is_reversed: false
-            });
-        }
-  
+    function opcoes() {
+        $('#demo').pietimer({
+            seconds: pieTempo,
+            color: 'rgba(0, 0, 0, 0.8)',
+            height: 100,
+            width: 100,
+            is_reversed: false
+        });
+    }
+
     </script>
 }
