@@ -48,7 +48,7 @@ namespace Quiz.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Questao,Resposta,erradoA,erradoB,erradoC,NomeCategoria")] Pergunta pergunta)
+        public ActionResult Create([Bind(Include = "Id,Questao,Resposta,erradoA,erradoB,erradoC,NomeCategoria, dificuldade")] Pergunta pergunta)
         {
             pergunta.Categoria_Id = db
                                     .Categorias
