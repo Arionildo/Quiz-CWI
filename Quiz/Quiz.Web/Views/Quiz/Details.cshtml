@@ -1,7 +1,6 @@
 ﻿@{
     ViewBag.Title = "Quiz";
 }
-
 <p id="demo" style="height: 150px;text-align: center;vertical-align: middle;"></p>
 <h2 style="text-align: center;vertical-align: middle;">
     1/10
@@ -14,6 +13,7 @@
     <p><a class="btn btn4 btn-primary btn-lg"></a></p>
 
 </div>
+
 @*<button onclick="myStopFunction()">Stop time</button>*@
 
 
@@ -26,6 +26,8 @@
         //alert(qtdRestaurantes);
 
     var numQuestao=0;
+    var qntQuestao=0;
+
     var questao = $('.questao');
     var sortearOrdemPergunta = {};
     var OrdemRespostas = {};
@@ -40,6 +42,7 @@
 
 
     $.get('@Url.Action("Perguntas", "Quiz", new { id = @ViewBag.id, dificuldade = @ViewBag.dificuldade })')
+
               .done(function (response) {
                
                    if( @ViewBag.dificuldade ==3){
@@ -55,9 +58,11 @@
                       return Math.round(Math.random()) - 0.5
                   }).slice(0, 10);
 
+                  qntQuestao= sortearOrdemPergunta.length;
                   opcoes();
                   remover();
               });
+
 
 
 
@@ -67,7 +72,7 @@
             if(numQuestao >=11){
                 numQuestao=10;
             }
-            $('h2').text(numQuestao+'/10')
+            $('h2').text(numQuestao+'/'+qntQuestao)
 
             myStopFunction();
             questaoAtual = sortearOrdemPergunta[0];
@@ -81,6 +86,7 @@
         }
 
         $('.btn').click(function () {
+
             $('.btn').css('pointer-events', 'none');
             $('#demo').pietimer('pause');
             myStopFunction();
@@ -118,7 +124,7 @@
                   $('.btn').css('pointer-events', 'auto');
                   $(".respostas").find(".btn-success").removeClass("btn-success")
                   $(".respostas").find(".btn-danger").removeClass("btn-danger")
-                
+
                   remover();
 
               }, 1000);
@@ -127,6 +133,7 @@
 
         function mostraQuestao(questaoAtual) {
             $('#demo').pietimer('start');
+
             $('#demo').pietimer('restart');
             //reinicia o contador
 
@@ -215,6 +222,5 @@
                 is_reversed: false
             });
         }
-
     </script>
 }

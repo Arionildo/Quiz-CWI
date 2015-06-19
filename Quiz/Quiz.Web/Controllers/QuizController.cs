@@ -13,6 +13,8 @@ namespace Quiz.Web.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Quiz
+
+        [Authorize]
         public ActionResult Index()
         {
        

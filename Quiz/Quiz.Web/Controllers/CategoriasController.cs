@@ -16,6 +16,7 @@ namespace Quiz.Web.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Categorias
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             return View(db.Categorias.ToList());

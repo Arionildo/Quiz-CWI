@@ -17,9 +17,8 @@ namespace Quiz.Web.Controllers
             return View(db.Categorias.ToList());
         }
 
-
+        [Authorize]
         public ActionResult Index(int id)
-        
         {
 
             var myDate = DateTime.Today.AddDays(1);

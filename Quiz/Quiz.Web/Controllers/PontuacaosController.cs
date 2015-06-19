@@ -15,6 +15,7 @@ namespace Quiz.Web.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Pontuacaos
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             return View(db.Pontuacaos.ToList());

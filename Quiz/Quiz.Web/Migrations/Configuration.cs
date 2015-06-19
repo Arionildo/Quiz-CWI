@@ -406,8 +406,6 @@ namespace Quiz.Web.Migrations
                 }
             #endregion
 
-    
-
             );
         }
     }

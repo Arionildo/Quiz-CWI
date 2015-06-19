@@ -13,7 +13,7 @@ namespace Quiz.Web.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201506181930494_CreateDataBase"; }
+            get { return "201506181647441_CreateDataBase"; }
         }
         
         string IMigrationMetadata.Source

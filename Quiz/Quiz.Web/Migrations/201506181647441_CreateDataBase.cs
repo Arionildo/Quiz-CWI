@@ -29,7 +29,6 @@ namespace Quiz.Web.Migrations
                         erradoC = c.String(),
                         NomeCategoria = c.String(),
                         Categoria_Id = c.Int(nullable: false),
-                        dificuldade = c.Int(nullable: false),
                         Categoria_Id1 = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)

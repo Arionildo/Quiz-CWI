@@ -75,3 +75,24 @@
         });
     </script>
 }
+        <div id='cssmenu' >
+            <ul>
+
+                <li class='active has-sub'>
+                    <a href='#' class="btn btn-default"><span>@item.Nome</span></a>
+                    <ul>
+
+                        @Html.ActionLink("Fácil", "Details", new { id = item.Id, dificuldade = 1 }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Médio", "Details", new { id = item.Id, dificuldade = 2 }, new { @class = "btn btn-default " })
+                        @Html.ActionLink("Díficil ", "Details", new { id = item.Id, dificuldade = 3 }, new { @class = "btn btn-default " })
+                    </ul>
+                          @*@Html.ActionLink(@item.Nome, "Details", new { id = item.Id }, new { @class = "btn btn-default " })*@
+                </li>
+
+            </ul>
+        </div>
+
+
+
+
+    }
