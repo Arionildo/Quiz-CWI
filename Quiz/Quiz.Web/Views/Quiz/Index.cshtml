@@ -7,10 +7,74 @@
 
 
 
-    @foreach (var item in Model)
-    {
 
 
+
+    <div id='cssmenu' class="">
+        <ul>
+@foreach (var item in Model)
+{
+    <li class='btn btn-new btn-default' id="@item.Id">
+        <span>@item.Nome</span>
+    </li>
+}
+        </ul>
+    </div>
+
+    
+@*<a href='#' class="btn btn-default"><span>@item.Nome</span></a>
+    <ul>
+        @Html.ActionLink("Fácil", "Details", new { id = item.Id, dificuldade = 1 }, new { @class = "btn btn-default " })
+        @Html.ActionLink("Médio", "Details", new { id = item.Id, dificuldade = 2 }, new { @class = "btn btn-default " })
+        @Html.ActionLink("Díficil ", "Details", new { id = item.Id, dificuldade = 3 }, new { @class = "btn btn-default " })
+    </ul>*@
+@*@Html.ActionLink(@item.Nome, "Details", new { id = item.Id }, new { @class = "btn btn-default " })*@
+
+@section Scripts{
+    <script>
+        $('.btn').on('click', function (e) {
+            e.stopPropagation();
+            var idCategoria = $(this).attr('id');
+            console.log(idCategoria);
+
+            $('.popup p').remove();
+            $(this).append('<div class="popup">'
+                + '<h3>Escolha uma Dificuldade</h3>'
+                + '<p id="1">Fácil</p>'
+                + '<p id="2">Médio</p>'
+                + '<p id="3">Difícil</p>'
+                + '</div>');
+
+            $('.popup p').on('click', function (e) {
+                e.stopPropagation();
+
+                var idDificuldade = $(this).attr('id');
+                abrirQuiz(idCategoria, idDificuldade);
+                console.log(idDificuldade);
+            })
+        });
+
+        function abrirQuiz(cat, dif) {
+            $.ajax({
+                url: "@Url.Action("Details", "Quiz")",
+                type: "POST",
+                dataType: 'json',
+                data: { id: cat, dificuldade: dif },
+                cache: false,
+                success: function (s) {
+                    console.log(s);
+                },
+            }).done(function () {
+                console.log(5);
+                window.location.href = "/Details"
+            });
+        }
+
+        $(document).click('hover', function () {
+            $('.popup').remove();
+        });
+    </script>
+}
         <div id='cssmenu' >
             <ul>
 
