@@ -14,7 +14,6 @@ body {
     margin: 0;
     background: url(img/Fundo2.png) repeat center center;
     padding: 0;
-     opacity: 0.5;
 
 }
 article,
@@ -3020,7 +3019,7 @@ fieldset[disabled] .btn {
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
           box-shadow: none;
-  opacity: .65;
+
 }
 .btn-default {
   color: #333;
