@@ -51,9 +51,13 @@
         function abrirQuiz(cat, dif) {
             $.ajax({
                 url: "@Url.Action("Details", "Quiz")",
-                type: "GET",
+                type: "POST",
                 data: { id: cat, dificuldade: dif },
                 cache: false,
+                success: function () {
+                    console.log(1);
+                    window.location.href = "/Quiz/Details?id="+cat+"&dificuldade="+dif;
+                }
             })
         }
 
