@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<Quiz.Web.Models.Pontuacao>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Pontuacão";
     ViewBag.id = new Categoria().GetCategoria();
     var random = new Random().Next(40 , 100) * 10;
 }
 
-<h2>Index</h2>
+<h2>Pontuacão</h2>
 
 <a href="#" onclick="criarBot()">Gerar pontuação aleatória</a>
 
@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Data)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NomeCategoria)
+            Categoria
         </th>
         <th></th>
     </tr>
@@ -67,7 +67,7 @@
             data: {
                 Usuario: usuario(),
                 Pontos: pontos,
-                cat: @ViewBag.id
+                cat: '@ViewBag.id'
             },
             cache: false,
         }).done(function () {

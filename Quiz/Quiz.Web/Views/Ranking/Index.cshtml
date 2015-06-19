@@ -1,7 +1,7 @@
 ﻿@model Dictionary<String, IEnumerable<Quiz.Web.Models.Pontuacao>>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Rank";
 }
 
 <ul class="nav nav-tabs">
@@ -22,7 +22,7 @@
                             @Html.DisplayNameFor(model => model["rankSemana"].ElementAt(0).Usuario)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model["rankSemana"].ElementAt(0).NomeCategoria)
+                            Categorias
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model["rankSemana"].ElementAt(0).Pontos)
@@ -70,7 +70,7 @@
                             @Html.DisplayNameFor(model => model["rankMes"].ElementAt(0).Usuario)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model["rankMes"].ElementAt(0).NomeCategoria)
+                            Categorias
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model["rankMes"].ElementAt(0).Pontos)
