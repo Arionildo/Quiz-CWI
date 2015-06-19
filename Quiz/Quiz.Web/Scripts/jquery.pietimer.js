@@ -76,9 +76,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     PieTimer.prototype = {
         start: function () {
             if (this.is_paused) {
-                //ATRIBUIA O TEMPO RESTANTE/ATUAL COMO TEMPO INICIAL, AGORA ATRIBUI O TEMPO PRÉ-DEFINDO
+                //ATRIBUIA O TEMPO RESTANTE/ATUAL COMO TEMPO INICIAL, AGORA ATRIBUI O TEMPO PRï¿½-DEFINDO
                 this.initial_time = new Date();
-                //VERIFICAVA SE O GRAU ATUAL DO CÍRCULO ERA ZERO PARA PODER VOLTAR AOS 360 GRAUS(INÍCIO DA CONTAGEM)
+                //VERIFICAVA SE O GRAU ATUAL DO Cï¿½RCULO ERA ZERO PARA PODER VOLTAR AOS 360 GRAUS(INï¿½CIO DA CONTAGEM)
                 //if (this.current_value <= 0) {
                     this.current_value = DEFAULT_VALUE;
                 //}
@@ -94,10 +94,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 this.is_paused = true;
             }
         },
-        //restart: function () {
-        //    this.initial_time = new Date() - this.accrued_time;
+        restart: function () {
+            this.initial_time = new Date() - this.accrued_time;
            
-        //},
+        },
         run_timer: function () {
             if (this.canvas.getContext) {
 

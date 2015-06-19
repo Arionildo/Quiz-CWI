@@ -24,22 +24,34 @@ namespace Quiz.Web.Controllers
 
         }
 
- 
-        public ActionResult Details(int? id)
+
+        public ActionResult Details(int? id, int? dificuldade)
         {
             @ViewBag.id = id;
+            @ViewBag.dificuldade = dificuldade;
         
             return View();
         }
 
 
         [AllowAnonymous]
-        public JsonResult Perguntas(int? id)
+        public JsonResult Perguntas(int id, int dificuldade)
         {
-           
-            var retornoPerguntas = db.Perguntas.Where(x => x.Categoria_Id == id).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
 
-            return Json(retornoPerguntas, JsonRequestBehavior.AllowGet);
+
+            if (id == 3)
+            {
+                 var retornoPerguntas = db.Perguntas.Where(x =>x.dificuldade == dificuldade).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
+                 return Json(retornoPerguntas, JsonRequestBehavior.AllowGet);
+
+            }
+            else 
+            {
+                var retornoPerguntas = db.Perguntas.Where(x => x.Categoria_Id == id && x.dificuldade == dificuldade).Select(x => new { x.Questao, x.Resposta, x.erradoA, x.erradoB, x.erradoC }); //;
+                return Json(retornoPerguntas, JsonRequestBehavior.AllowGet);
+
+            }
+
 
           
         }

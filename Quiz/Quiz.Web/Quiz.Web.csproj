@@ -187,9 +187,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201506181647441_CreateDataBase.cs" />
-    <Compile Include="Migrations\201506181647441_CreateDataBase.Designer.cs">
-      <DependentUpon>201506181647441_CreateDataBase.cs</DependentUpon>
+    <Compile Include="Migrations\201506181930494_CreateDataBase.cs" />
+    <Compile Include="Migrations\201506181930494_CreateDataBase.Designer.cs">
+      <DependentUpon>201506181930494_CreateDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -243,7 +243,6 @@
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
-      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -300,11 +299,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201506181647441_CreateDataBase.resx">
-      <DependentUpon>201506181647441_CreateDataBase.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

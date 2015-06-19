@@ -200,3 +200,9 @@ Quiz/Quiz.Web/Migrations/*banco*
 Quiz/Quiz.Web/Migrations/201506171638024_CreateDataBase.Designer.cs
 Quiz/Quiz.Web/Migrations/201506171638024_CreateDataBase.cs
 Quiz/Quiz.Web/Migrations/201506171638024_CreateDataBase.resx
+Quiz/Quiz.Web/Migrations/201506181724565_CreateDataBase.Designer.cs
+Quiz/Quiz.Web/Migrations/201506181724565_CreateDataBase.cs
+Quiz/Quiz.Web/Migrations/201506181724565_CreateDataBase.resx
+Quiz/Quiz.Web/Migrations/201506181930494_CreateDataBase.resx
+Quiz/Quiz.Web/Migrations/201506181930494_CreateDataBase.cs
+Quiz/Quiz.Web/Migrations/201506181930494_CreateDataBase.Designer.cs

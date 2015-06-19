@@ -12,7 +12,7 @@ namespace Quiz.Web
       public string erradoC { set; get; }
       public string NomeCategoria { get; set; }
       public int Categoria_Id { get; set; }
-      public virtual Categoria Categoria { set; get; }
+      public int dificuldade { set; get; }
 
     }
 
