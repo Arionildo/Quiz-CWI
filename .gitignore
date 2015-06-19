@@ -206,6 +206,6 @@ Quiz/Quiz.Web/Migrations/201506181724565_CreateDataBase.resx
 Quiz/Quiz.Web/Migrations/201506181930494_CreateDataBase.resx
 Quiz/Quiz.Web/Migrations/201506181930494_CreateDataBase.cs
 Quiz/Quiz.Web/Migrations/201506181930494_CreateDataBase.Designer.cs
-Quiz/Quiz.Web/Migrations/201506190155396_CreateDataBase.Designer.cs
-Quiz/Quiz.Web/Migrations/201506190155396_CreateDataBase.cs
-Quiz/Quiz.Web/Migrations/201506190155396_CreateDataBase.resx
+Quiz/Quiz.Web/Migrations/201506190258129_CreateDataBase.cs
+Quiz/Quiz.Web/Migrations/201506190258129_CreateDataBase.Designer.cs
+Quiz/Quiz.Web/Migrations/201506190258129_CreateDataBase.resx
