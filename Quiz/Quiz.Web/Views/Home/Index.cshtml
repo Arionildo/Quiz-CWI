@@ -5,19 +5,25 @@
 <d>
 <center>
     <div >
-        <h1>CWquIz</h1>
+        <img src="@Url.Content("~/Content/img/logo.png")" class="logo-home">
         <p class="lead">CWquIz é uma aplicação desenvolvida no projeto Crescer da empresa CWI Software.</p>
+        <br/>
         <h2>Começando</h2>
         <p>
-            Primeiramente, é necessário @Html.ActionLink("registrar-se", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) para jogar, ao estar logado, você perceberá que possui acesso ao jogo e ao Ranking.
+            Primeiramente, é necessário criar uma conta para jogar, ao criá-la ou entrar em uma conta existente, você perceberá que possui acesso ao Quiz e ao Ranking.
         </p>
+        <p>
+            @Html.ActionLink("Registre-se aqui.", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        </p>
+        <br />
     </div>
     <div >
         <h2>Regras</h2>
-        <p>O jogo é muito simples, você pode selecionar uma categoria e uma dificuldade e o jogo irá começar, serão 10 perguntas referentes à categoria, quanto mais rápido as perguntas forem respondidas, mais pontos o usuário acumulará.</p>
+        <p>É muito simples, após selecionar uma categoria e uma dificuldade, o jogo irá começar, serão 10 perguntas referentes à categoria, quanto mais rápido as perguntas forem respondidas, mais pontos o usuário acumulará.</p>
     </div>
+    <br />
     <div >
         <h2>Dificuldades</h2>
-        <p>As dificuldades são uma parte importante do jogo, quanto maior a dificuldade escolhida, menos tempo o jogador terá para responder as perguntas, mas ao mesmo tempo, as questões valerão mais pontos.</p>
+        <p>As dificuldades são uma parte importante do jogo, quanto maior a dificuldade escolhida, menos tempo o jogador terá para responder as perguntas e as mesmas terão maior grau de dificuldade, mas ao mesmo tempo, as questões valerão mais pontos.</p>
     </div>
 </center>
