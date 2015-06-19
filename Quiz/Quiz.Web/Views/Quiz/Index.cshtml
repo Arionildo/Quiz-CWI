@@ -54,13 +54,7 @@
                 type: "GET",
                 data: { id: cat, dificuldade: dif },
                 cache: false,
-                success: function (s) {
-                    console.log(s);
-                },
-            }).done(function () {
-                console.log(5);
-                window.location.href = "/Details"
-            });
+            })
         }
 
         $(document).click('hover', function () {
