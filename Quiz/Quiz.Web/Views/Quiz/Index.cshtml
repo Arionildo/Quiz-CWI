@@ -51,8 +51,7 @@
         function abrirQuiz(cat, dif) {
             $.ajax({
                 url: "@Url.Action("Details", "Quiz")",
-                type: "POST",
-                dataType: 'json',
+                type: "GET",
                 data: { id: cat, dificuldade: dif },
                 cache: false,
                 success: function (s) {
